@@ -1,12 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>For Aastha 🐼🌷</title>
 
+
 <style>
+
+/* =====================================================
+   BASIC RESET
+===================================================== */
 
 *{
     box-sizing:border-box;
@@ -14,40 +26,76 @@
     padding:0;
 }
 
-html,body{
+
+html,
+body{
+
     width:100%;
-    height:100%;
-    overflow:hidden;
-    font-family:"Trebuchet MS",Arial,sans-serif;
+
+    min-height:100%;
+
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
+
     background:#fffafd;
+
     color:#694f5d;
 }
 
+
+/* =====================================================
+   MAIN APP
+
+   IMPORTANT:
+   We allow a LITTLE scrolling on small screens.
+===================================================== */
+
 #app{
+
     position:relative;
+
     width:100%;
-    height:100vh;
-    overflow:hidden;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
 }
 
-/* =========================
+
+/* =====================================================
    SLIDES
-========================= */
+===================================================== */
 
 .slide{
+
     position:absolute;
-    inset:0;
+
+    top:0;
+    left:0;
 
     width:100%;
-    height:100vh;
+
+    min-height:100vh;
+
+    padding:
+        25px
+        20px
+        90px;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
-    padding:20px;
+    overflow-y:auto;
+
+    overflow-x:hidden;
 
     opacity:0;
+
     visibility:hidden;
 
     transform:translateX(100%);
@@ -58,20 +106,34 @@ html,body{
         visibility .7s;
 }
 
+
+/* ACTIVE SLIDE */
+
 .slide.active{
+
     opacity:1;
+
     visibility:visible;
+
     transform:translateX(0);
 }
 
+
+/* OLD SLIDE */
+
 .slide.old{
+
     opacity:0;
+
+    visibility:hidden;
+
     transform:translateX(-100%);
 }
 
-/* =========================
-   BACKGROUNDS
-========================= */
+
+/* =====================================================
+   PASTEL BACKGROUNDS
+===================================================== */
 
 .pastel{
 
@@ -92,6 +154,7 @@ html,body{
     #fffafd;
 }
 
+
 .soft{
 
     background:
@@ -105,9 +168,10 @@ html,body{
     #fffafd;
 }
 
-/* =========================
-   CARD
-========================= */
+
+/* =====================================================
+   GENERAL CARD
+===================================================== */
 
 .card{
 
@@ -117,28 +181,45 @@ html,body{
 
     text-align:center;
 
-    background:rgba(255,255,255,.9);
+    background:
+        rgba(255,255,255,.94);
 
     border-radius:32px;
 
     box-shadow:
-        0 20px 70px rgba(180,110,140,.18);
+        0 20px 70px
+        rgba(180,110,140,.18);
 
-    animation:cardIn .8s ease;
+    animation:
+        cardIn .8s ease;
 }
+
 
 @keyframes cardIn{
 
     from{
+
         opacity:0;
-        transform:scale(.8) translateY(30px);
+
+        transform:
+            scale(.8)
+            translateY(30px);
     }
 
     to{
+
         opacity:1;
-        transform:scale(1) translateY(0);
+
+        transform:
+            scale(1)
+            translateY(0);
     }
 }
+
+
+/* =====================================================
+   TEXT
+===================================================== */
 
 h1{
 
@@ -152,6 +233,7 @@ h1{
         );
 }
 
+
 h2{
 
     color:#ce6c96;
@@ -164,6 +246,7 @@ h2{
         );
 }
 
+
 p{
 
     margin-top:14px;
@@ -173,9 +256,10 @@ p{
     font-size:1.05rem;
 }
 
-/* =========================
+
+/* =====================================================
    BUTTONS
-========================= */
+===================================================== */
 
 .buttons{
 
@@ -189,6 +273,7 @@ p{
 
     margin-top:25px;
 }
+
 
 button{
 
@@ -208,8 +293,11 @@ button{
 
     cursor:pointer;
 
-    transition:.25s;
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
 }
+
 
 button:hover{
 
@@ -218,6 +306,7 @@ button:hover{
         scale(1.03);
 }
 
+
 .next{
 
     background:#dc79a2;
@@ -225,12 +314,14 @@ button:hover{
     color:white;
 
     box-shadow:
-        0 8px 25px rgba(220,121,162,.25);
+        0 8px 25px
+        rgba(220,121,162,.25);
 }
 
-/* =========================
+
+/* =====================================================
    PANDA
-========================= */
+===================================================== */
 
 .panda-big{
 
@@ -243,14 +334,21 @@ button:hover{
         infinite;
 }
 
+
 @keyframes pandaBounce{
 
     50%{
+
         transform:
             translateY(-12px)
             rotate(3deg);
     }
 }
+
+
+/* =====================================================
+   NO MESSAGE
+===================================================== */
 
 #noMessage{
 
@@ -261,9 +359,43 @@ button:hover{
     margin-top:12px;
 }
 
-/* =================================================
-   MEMORY HEART
-================================================= */
+
+/* =====================================================
+   YES BUTTON JUMP AREA
+===================================================== */
+
+.yes-area{
+
+    position:relative;
+
+    min-height:65px;
+
+    min-width:180px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+
+#yesButton{
+
+    position:relative;
+
+    z-index:10;
+
+    transition:
+        left .3s ease,
+        top .3s ease,
+        transform .2s ease;
+}
+
+
+/* =====================================================
+   MEMORY SLIDE
+===================================================== */
 
 .memory-slide{
 
@@ -272,24 +404,27 @@ button:hover{
     text-align:center;
 
     gap:8px;
+
+    justify-content:
+        flex-start;
 }
 
+
 .memory-title{
-
-    position:absolute;
-
-    top:25px;
-
-    left:0;
 
     width:100%;
 
     text-align:center;
 
+    margin-top:5px;
+
     z-index:20;
 }
 
-/* The square area */
+
+/* =====================================================
+   HEART AREA
+===================================================== */
 
 .heart-area{
 
@@ -299,7 +434,11 @@ button:hover{
 
     height:min(75vh,650px);
 
-    margin-top:35px;
+    min-height:500px;
+
+    margin-top:20px;
+
+    flex-shrink:0;
 
     border-radius:30px;
 
@@ -307,7 +446,7 @@ button:hover{
 
         radial-gradient(
             circle,
-            #fff 20%,
+            #ffffff 20%,
             #fff4f8 100%
         );
 
@@ -322,7 +461,10 @@ button:hover{
     overflow:hidden;
 }
 
-/* Individual memory photo */
+
+/* =====================================================
+   MEMORY PHOTOS
+===================================================== */
 
 .heart-photo{
 
@@ -347,23 +489,12 @@ button:hover{
     opacity:0;
 
     z-index:5;
-
-    transition:none;
 }
 
-/* =========================
+
+/* =====================================================
    HEART POSITIONS
-========================= */
-
-/*
-       1       2
-
-    3           4
-
-      5       6
-
-          7
-*/
+===================================================== */
 
 .photo1{
 
@@ -376,6 +507,7 @@ button:hover{
         rotate(-20deg);
 }
 
+
 .photo2{
 
     left:56%;
@@ -386,6 +518,7 @@ button:hover{
         translateY(-400px)
         rotate(20deg);
 }
+
 
 .photo3{
 
@@ -398,6 +531,7 @@ button:hover{
         rotate(-20deg);
 }
 
+
 .photo4{
 
     left:69%;
@@ -408,6 +542,7 @@ button:hover{
         translateX(400px)
         rotate(20deg);
 }
+
 
 .photo5{
 
@@ -420,6 +555,7 @@ button:hover{
         rotate(-15deg);
 }
 
+
 .photo6{
 
     left:55%;
@@ -431,6 +567,7 @@ button:hover{
         rotate(15deg);
 }
 
+
 .photo7{
 
     left:42%;
@@ -439,15 +576,15 @@ button:hover{
 
     transform:
         translateY(400px)
-        rotate(0deg);
+        rotate(0);
 }
 
-/* =========================
-   HEART ANIMATION
-========================= */
 
-.heart-area.animate
-.photo1{
+/* =====================================================
+   HEART ANIMATION
+===================================================== */
+
+.heart-area.animate .photo1{
 
     animation:
         photo1In
@@ -457,8 +594,8 @@ button:hover{
         forwards;
 }
 
-.heart-area.animate
-.photo2{
+
+.heart-area.animate .photo2{
 
     animation:
         photo2In
@@ -468,8 +605,8 @@ button:hover{
         forwards;
 }
 
-.heart-area.animate
-.photo3{
+
+.heart-area.animate .photo3{
 
     animation:
         photo3In
@@ -479,8 +616,8 @@ button:hover{
         forwards;
 }
 
-.heart-area.animate
-.photo4{
+
+.heart-area.animate .photo4{
 
     animation:
         photo4In
@@ -490,8 +627,8 @@ button:hover{
         forwards;
 }
 
-.heart-area.animate
-.photo5{
+
+.heart-area.animate .photo5{
 
     animation:
         photo5In
@@ -501,8 +638,8 @@ button:hover{
         forwards;
 }
 
-.heart-area.animate
-.photo6{
+
+.heart-area.animate .photo6{
 
     animation:
         photo6In
@@ -512,8 +649,8 @@ button:hover{
         forwards;
 }
 
-.heart-area.animate
-.photo7{
+
+.heart-area.animate .photo7{
 
     animation:
         photo7In
@@ -522,6 +659,11 @@ button:hover{
         1.6s
         forwards;
 }
+
+
+/* =====================================================
+   PHOTO ANIMATION KEYFRAMES
+===================================================== */
 
 @keyframes photo1In{
 
@@ -535,6 +677,7 @@ button:hover{
     }
 }
 
+
 @keyframes photo2In{
 
     to{
@@ -546,6 +689,7 @@ button:hover{
             rotate(8deg);
     }
 }
+
 
 @keyframes photo3In{
 
@@ -559,6 +703,7 @@ button:hover{
     }
 }
 
+
 @keyframes photo4In{
 
     to{
@@ -570,6 +715,7 @@ button:hover{
             rotate(10deg);
     }
 }
+
 
 @keyframes photo5In{
 
@@ -583,6 +729,7 @@ button:hover{
     }
 }
 
+
 @keyframes photo6In{
 
     to{
@@ -594,6 +741,7 @@ button:hover{
             rotate(8deg);
     }
 }
+
 
 @keyframes photo7In{
 
@@ -607,9 +755,10 @@ button:hover{
     }
 }
 
-/* =========================
-   HEART CENTER
-========================= */
+
+/* =====================================================
+   CENTER HEART
+===================================================== */
 
 .heart{
 
@@ -630,8 +779,8 @@ button:hover{
     z-index:2;
 }
 
-.heart-area.animate
-.heart{
+
+.heart-area.animate .heart{
 
     animation:
         heartAppear
@@ -640,6 +789,7 @@ button:hover{
         2.7s
         forwards;
 }
+
 
 @keyframes heartAppear{
 
@@ -653,16 +803,20 @@ button:hover{
     }
 }
 
-/* =========================
-   VIDEO
-========================= */
+
+/* =====================================================
+   VIDEO SLIDE
+===================================================== */
 
 .video-slide{
 
     flex-direction:column;
 
     gap:15px;
+
+    text-align:center;
 }
+
 
 .video-box{
 
@@ -679,6 +833,7 @@ button:hover{
         rgba(170,110,140,.2);
 }
 
+
 video{
 
     display:block;
@@ -692,9 +847,10 @@ video{
     border-radius:20px;
 }
 
-/* =========================
+
+/* =====================================================
    PNG SCENE
-========================= */
+===================================================== */
 
 .png-slide{
 
@@ -702,9 +858,9 @@ video{
 
     width:100%;
 
-    height:100%;
+    min-height:80vh;
 
-    overflow:hidden;
+    overflow:visible;
 
     display:flex;
 
@@ -713,11 +869,12 @@ video{
     align-items:center;
 }
 
+
 .scene-title{
 
     position:absolute;
 
-    top:40px;
+    top:10px;
 
     left:0;
 
@@ -728,6 +885,7 @@ video{
     z-index:10;
 }
 
+
 .scene{
 
     position:relative;
@@ -735,7 +893,10 @@ video{
     width:min(900px,100%);
 
     height:65vh;
+
+    min-height:450px;
 }
+
 
 .cutout{
 
@@ -752,6 +913,7 @@ video{
         );
 }
 
+
 .couple{
 
     width:min(55vw,380px);
@@ -767,6 +929,7 @@ video{
         scale(.8);
 }
 
+
 .panda{
 
     width:130px;
@@ -779,6 +942,7 @@ video{
         translateX(-300px)
         rotate(-15deg);
 }
+
 
 .tulips{
 
@@ -793,8 +957,12 @@ video{
         rotate(15deg);
 }
 
-.scene.play
-.couple{
+
+/* =====================================================
+   PNG ANIMATION
+===================================================== */
+
+.scene.play .couple{
 
     animation:
         coupleIn
@@ -804,8 +972,8 @@ video{
         forwards;
 }
 
-.scene.play
-.panda{
+
+.scene.play .panda{
 
     animation:
         pandaIn
@@ -815,8 +983,8 @@ video{
         forwards;
 }
 
-.scene.play
-.tulips{
+
+.scene.play .tulips{
 
     animation:
         tulipIn
@@ -825,6 +993,7 @@ video{
         1.1s
         forwards;
 }
+
 
 @keyframes coupleIn{
 
@@ -838,6 +1007,7 @@ video{
     }
 }
 
+
 @keyframes pandaIn{
 
     to{
@@ -849,6 +1019,7 @@ video{
             rotate(-8deg);
     }
 }
+
 
 @keyframes tulipIn{
 
@@ -862,9 +1033,10 @@ video{
     }
 }
 
-/* =========================
-   FINAL
-========================= */
+
+/* =====================================================
+   FINAL CARD
+===================================================== */
 
 .final-card{
 
@@ -888,6 +1060,7 @@ video{
         ease;
 }
 
+
 .gift{
 
     font-size:75px;
@@ -899,20 +1072,25 @@ video{
         infinite;
 }
 
+
 @keyframes giftShake{
 
     0%,100%{
+
         transform:rotate(0);
     }
 
     25%{
+
         transform:rotate(-6deg);
     }
 
     75%{
+
         transform:rotate(6deg);
     }
 }
+
 
 @keyframes finalIn{
 
@@ -933,18 +1111,43 @@ video{
     }
 }
 
-/* =========================
-   MOBILE
-========================= */
+
+/* =====================================================
+   SMALL PHONE FIXES
+===================================================== */
 
 @media(max-width:600px){
+
+    .slide{
+
+        align-items:
+            flex-start;
+
+        padding-top:30px;
+
+        padding-bottom:100px;
+    }
+
+
+    .card{
+
+        margin-top:20px;
+
+        padding:
+            30px
+            20px;
+    }
+
 
     .heart-area{
 
         width:94vw;
 
         height:68vh;
+
+        min-height:470px;
     }
+
 
     .heart-photo{
 
@@ -955,475 +1158,630 @@ video{
         padding:4px;
     }
 
+
     .heart{
 
         font-size:40px;
     }
 
+
     .photo1{
+
         left:20%;
+
         top:18%;
     }
+
 
     .photo2{
+
         left:58%;
+
         top:18%;
     }
 
+
     .photo3{
+
         left:7%;
+
         top:40%;
     }
+
 
     .photo4{
+
         left:67%;
+
         top:40%;
     }
 
+
     .photo5{
+
         left:21%;
+
         top:58%;
     }
+
 
     .photo6{
+
         left:58%;
+
         top:58%;
     }
 
+
     .photo7{
+
         left:42%;
+
         top:73%;
     }
 
+
     .panda{
+
         width:80px;
     }
 
+
     .tulips{
+
         width:90px;
+    }
+
+
+    .scene{
+
+        min-height:500px;
+
+        height:65vh;
+    }
+
+
+    .couple{
+
+        width:55vw;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media(max-width:380px){
+
+    .slide{
+
+        padding-left:12px;
+
+        padding-right:12px;
+    }
+
+
+    .heart-area{
+
+        min-height:450px;
+
+        height:65vh;
+    }
+
+
+    .heart-photo{
+
+        width:68px;
+
+        height:68px;
+    }
+
+
+    h1{
+
+        font-size:2.2rem;
+    }
+
+
+    h2{
+
+        font-size:1.6rem;
+    }
+
+
+    button{
+
+        padding:
+            12px
+            22px;
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
+
 <div id="app">
 
 
-<!-- ==================================================
+<!-- =====================================================
      SLIDE 1
-================================================== -->
+===================================================== -->
 
 <section
     class="slide active pastel"
-    id="slide1">
+    id="slide1"
+>
 
-    <div class="card">
 
-        <div class="panda-big">
-            🐼
-        </div>
+<div class="card">
 
-        <h1>
-            Heyyy Aasthaaa 👀
-        </h1>
 
-        <p>
+<div class="panda-big">
+🐼
+</div>
 
-            I made something for youuu... 🌷
 
-            <br><br>
+<h1>
+Heyyy Aasthaaa 👀
+</h1>
 
-            Wanna open it?
 
-        </p>
+<p>
 
-        <div class="buttons">
+I made something for youuu... 🌷
 
-            <button
-                class="next"
-                onclick="nextSlide()">
+<br><br>
 
-                YESSS 💗
+Wanna open it?
 
-            </button>
+</p>
 
-            <button
-                onclick="noButton()">
 
-                NOOO 🙃
+<div class="buttons">
 
-            </button>
 
-        </div>
+<!-- YES AREA -->
 
-        <p id="noMessage"></p>
+<div class="yes-area">
 
-    </div>
+<button
+    id="yesButton"
+    class="next"
+    onclick="yesClicked()"
+>
+
+YESSS 💗
+
+</button>
+
+</div>
+
+
+<!-- NO -->
+
+<button
+    onclick="noButton()"
+>
+
+NOOO 🙃
+
+</button>
+
+
+</div>
+
+
+<p id="noMessage"></p>
+
+
+</div>
+
 
 </section>
 
 
-<!-- ==================================================
+
+<!-- =====================================================
      SLIDE 2 — MEMORY HEART
-================================================== -->
+===================================================== -->
 
 <section
     class="slide pastel memory-slide"
-    id="slide2">
-
-    <div class="memory-title">
-
-        <h2>
-            Our Little Memories 💗
-        </h2>
-
-        <p>
-            Some moments just belong together.
-        </p>
-
-    </div>
+    id="slide2"
+>
 
 
-    <div
-        class="heart-area"
-        id="heartArea">
+<div class="memory-title">
+
+<h2>
+Our Little Memories 💗
+</h2>
+
+<p>
+Some moments just belong together.
+</p>
+
+</div>
 
 
-        <!-- PHOTO 1 -->
-
-        <img
-            class="heart-photo photo1"
-            src="photos/photo1.jpg"
-            alt="Memory 1">
+<div
+    class="heart-area"
+    id="heartArea"
+>
 
 
-        <!-- PHOTO 2 -->
-
-        <img
-            class="heart-photo photo2"
-            src="photos/photo2.jpg"
-            alt="Memory 2">
-
-
-        <!-- PHOTO 3 -->
-
-        <img
-            class="heart-photo photo3"
-            src="photos/photo3.jpg"
-            alt="Memory 3">
+<img
+    class="heart-photo photo1"
+    src="photos/photo1.jpg"
+    alt="Memory 1"
+>
 
 
-        <!-- PHOTO 4 -->
-
-        <img
-            class="heart-photo photo4"
-            src="photos/photo4.jpg"
-            alt="Memory 4">
-
-
-        <!-- PHOTO 5 -->
-
-        <img
-            class="heart-photo photo5"
-            src="photos/photo5.jpg"
-            alt="Memory 5">
+<img
+    class="heart-photo photo2"
+    src="photos/photo2.jpg"
+    alt="Memory 2"
+>
 
 
-        <!-- PHOTO 6 -->
-
-        <img
-            class="heart-photo photo6"
-            src="photos/photo6.jpg"
-            alt="Memory 6">
-
-
-        <!-- PHOTO 7 -->
-
-        <img
-            class="heart-photo photo7"
-            src="photos/photo7.jpg"
-            alt="Memory 7">
+<img
+    class="heart-photo photo3"
+    src="photos/photo3.jpg"
+    alt="Memory 3"
+>
 
 
-        <div class="heart">
-            ❤️
-        </div>
+<img
+    class="heart-photo photo4"
+    src="photos/photo4.jpg"
+    alt="Memory 4"
+>
 
-    </div>
+
+<img
+    class="heart-photo photo5"
+    src="photos/photo5.jpg"
+    alt="Memory 5"
+>
 
 
-    <button
-        class="next"
-        style="
-        position:absolute;
-        bottom:20px;
-        "
-        onclick="nextSlide()">
+<img
+    class="heart-photo photo6"
+    src="photos/photo6.jpg"
+    alt="Memory 6"
+>
 
-        NEXT 🌷
 
-    </button>
+<img
+    class="heart-photo photo7"
+    src="photos/photo7.jpg"
+    alt="Memory 7"
+>
+
+
+<div class="heart">
+❤️
+</div>
+
+
+</div>
+
+
+<button
+    class="next"
+    onclick="nextSlide()"
+>
+
+NEXT 🌷
+
+</button>
+
 
 </section>
 
 
-<!-- ==================================================
+
+<!-- =====================================================
      SLIDE 3 — MESSAGE
-================================================== -->
+===================================================== -->
 
 <section
     class="slide soft"
-    id="slide3">
-
-    <div class="card">
-
-        <div style="font-size:55px">
-            🌷
-        </div>
-
-        <h2>
-            A Little Message For You 💌
-        </h2>
-
-        <p>
-
-            Aasthaaa ❤️
-
-            <br><br>
-
-            I know I annoy you every time 😂
-
-            <br>
-
-            but I'll always be there whenever you want me.
-
-            <br><br>
-
-            We may not meet as often as we'd like,
-
-            but that doesn't make our memories
-            any less special.
-
-            <br><br>
-
-            Keep smiling, keep being yourself,
-
-            and keep collecting beautiful memories. 🌷
-
-            <br><br>
-
-            <strong>
-                Happpyyy Birthadaayyy once againnn 🥳💗
-            </strong>
-
-            <br><br>
-
-            — Shyam 🐼
-
-        </p>
+    id="slide3"
+>
 
 
-        <button
-            class="next"
-            onclick="nextSlide()">
+<div class="card">
 
-            ONE MORE THING... 👀
 
-        </button>
+<div style="font-size:55px">
+🌷
+</div>
 
-    </div>
+
+<h2>
+A Little Message For You 💌
+</h2>
+
+
+<p>
+
+Aasthaaa ❤️
+
+<br><br>
+
+I know I annoy you every time 😂
+
+<br>
+
+but I'll always be there whenever you want me.
+
+<br><br>
+
+We may not meet as often as we'd like,
+
+but that doesn't make our memories
+any less special.
+
+<br><br>
+
+Keep smiling, keep being yourself,
+
+and keep collecting beautiful memories. 🌷
+
+<br><br>
+
+<strong>
+Happpyyy Birthadaayyy once againnn 🥳💗
+</strong>
+
+<br><br>
+
+— Shyam 🐼
+
+</p>
+
+
+<button
+    class="next"
+    onclick="nextSlide()"
+>
+
+ONE MORE THING... 👀
+
+</button>
+
+
+</div>
+
 
 </section>
 
 
-<!-- ==================================================
+
+<!-- =====================================================
      SLIDE 4 — VIDEO
-================================================== -->
+===================================================== -->
 
 <section
     class="slide pastel video-slide"
-    id="slide4">
-
-    <h2>
-        A Little Memory 🎬
-    </h2>
-
-    <p>
-        Watch thisss before going ahead 🥹💗
-    </p>
+    id="slide4"
+>
 
 
-    <div class="video-box">
-
-        <video
-            id="birthdayVideo"
-            controls
-            playsinline
-            preload="auto">
-
-            <source
-                src="birthday-video.mp4"
-                type="video/mp4">
-
-            Your browser doesn't support MP4 video.
-
-        </video>
-
-    </div>
+<h2>
+A Little Memory 🎬
+</h2>
 
 
-    <button
-        class="next"
-        onclick="nextSlide()">
+<p>
+Watch thisss before going ahead 🥹💗
+</p>
 
-        NEXT 🐼
 
-    </button>
+<div class="video-box">
+
+
+<video
+    id="birthdayVideo"
+    controls
+    playsinline
+    preload="metadata"
+>
+
+
+<source
+    src="./birthday-video.mp4"
+    type="video/mp4"
+>
+
+
+Your browser doesn't support MP4 video.
+
+
+</video>
+
+
+</div>
+
+
+<button
+    class="next"
+    onclick="nextSlide()"
+>
+
+NEXT 🐼
+
+</button>
+
 
 </section>
 
 
-<!-- ==================================================
+
+<!-- =====================================================
      SLIDE 5 — PNG ANIMATION
-================================================== -->
+===================================================== -->
 
 <section
     class="slide pastel"
-    id="slide5">
-
-    <div class="png-slide">
-
-        <div class="scene-title">
-
-            <h2>
-                One More Little Memory 💗
-            </h2>
-
-            <p>
-                Some people make ordinary moments special.
-            </p>
-
-        </div>
+    id="slide5"
+>
 
 
-        <div
-            class="scene"
-            id="scene">
+<div class="png-slide">
 
 
-            <!-- PANDA -->
-
-            <img
-                class="cutout panda"
-                src="photos/panda.png"
-                alt="Panda">
+<div class="scene-title">
 
 
-            <!-- YOUR TRANSPARENT PHOTO -->
-
-            <img
-                class="cutout couple"
-                src="photos/couple-cutout.png"
-                alt="Our photo">
+<h2>
+One More Little Memory 💗
+</h2>
 
 
-            <!-- TULIPS -->
-
-            <img
-                class="cutout tulips"
-                src="photos/tulips.png"
-                alt="Tulips">
-
-        </div>
+<p>
+Some people make ordinary moments special.
+</p>
 
 
-        <button
-            class="next"
-            style="
-            position:absolute;
-            bottom:20px;
-            "
-            onclick="nextSlide()">
+</div>
 
-            CONTINUE 💗
 
-        </button>
+<div
+    class="scene"
+    id="scene"
+>
 
-    </div>
+
+<img
+    class="cutout panda"
+    src="photos/panda.png"
+    alt="Panda"
+>
+
+
+<img
+    class="cutout couple"
+    src="photos/couple-cutout.png"
+    alt="Our photo"
+>
+
+
+<img
+    class="cutout tulips"
+    src="photos/tulips.png"
+    alt="Tulips"
+>
+
+
+</div>
+
+
+<button
+    class="next"
+    style="
+        position:absolute;
+        bottom:20px;
+    "
+    onclick="nextSlide()"
+>
+
+CONTINUE 💗
+
+</button>
+
+
+</div>
+
 
 </section>
 
 
-<!-- ==================================================
-     SLIDE 6 — FINAL SURPRISE
-================================================== -->
+
+<!-- =====================================================
+     SLIDE 6 — FINAL
+===================================================== -->
 
 <section
     class="slide soft"
-    id="slide6">
+    id="slide6"
+>
 
-    <div class="final-card">
 
-        <div class="gift">
-            🎁
-        </div>
+<div class="final-card">
 
-        <h1>
-            Waittt... 👀
-        </h1>
 
-        <p
-            style="
-            color:#d26694;
-            font-size:1.3rem;
-            font-weight:bold;
-            "
-        >
+<div class="gift">
+🎁
+</div>
 
-            There's one more thing...
 
-        </p>
+<h1>
+Waittt... 👀
+</h1>
 
-        <p>
 
-            You thought that was everything? 😂
+<p
+    style="
+        color:#d26694;
+        font-size:1.3rem;
+        font-weight:bold;
+    "
+>
 
-            <br><br>
+There's one more thing...
 
-            Nopeee.
+</p>
 
-            <br><br>
 
-            This one isn't inside the website...
+<p>
 
-            <br><br>
+You thought that was everything? 😂
 
-            <strong>
-                You'll have to meet me to find out. 😈🎁
-            </strong>
+<br><br>
 
-        </p>
+Nopeee.
 
-        <div style="font-size:45px">
-            🐼 🌷 💗
-        </div>
+<br><br>
 
-        <p>
+This one isn't inside the website...
 
-            Okiiiieee...
+<br><br>
 
-            <br>
+<strong>
+You'll have to meet me to find out. 😈🎁
+</strong>
 
-            Happpyyy Birthadaayyy once againnn! 🥹💗
+</p>
 
-        </p>
 
-    </div>
+<div style="font-size:45px">
+🐼 🌷 💗
+</div>
+
+
+<p>
+
+Okiiiieee...
+
+<br>
+
+Happpyyy Birthadaayyy once againnn! 🥹💗
+
+</p>
+
+
+</div>
+
 
 </section>
 
@@ -1431,11 +1789,12 @@ video{
 </div>
 
 
+
 <script>
 
-/* ==================================================
+/* =====================================================
    SLIDE SYSTEM
-================================================== */
+===================================================== */
 
 let currentSlide = 1;
 
@@ -1450,7 +1809,6 @@ function showSlide(number){
     ){
 
         return;
-
     }
 
 
@@ -1470,6 +1828,7 @@ function showSlide(number){
         "active"
     );
 
+
     oldSlide.classList.add(
         "old"
     );
@@ -1479,6 +1838,7 @@ function showSlide(number){
         "old"
     );
 
+
     newSlide.classList.add(
         "active"
     );
@@ -1487,9 +1847,9 @@ function showSlide(number){
     currentSlide = number;
 
 
-    /* =========================
+    /* ==========================================
        MEMORY HEART
-    ========================= */
+    ========================================== */
 
     if(number === 2){
 
@@ -1504,8 +1864,6 @@ function showSlide(number){
         );
 
 
-        /* Force browser to restart animation */
-
         void heartArea.offsetWidth;
 
 
@@ -1516,9 +1874,9 @@ function showSlide(number){
     }
 
 
-    /* =========================
+    /* ==========================================
        PNG SCENE
-    ========================= */
+    ========================================== */
 
     if(number === 5){
 
@@ -1543,9 +1901,9 @@ function showSlide(number){
     }
 
 
-    /* =========================
+    /* ==========================================
        VIDEO
-    ========================= */
+    ========================================== */
 
     const video =
         document.getElementById(
@@ -1562,9 +1920,9 @@ function showSlide(number){
 }
 
 
-/* =========================
-   NEXT
-========================= */
+/* =====================================================
+   NEXT SLIDE
+===================================================== */
 
 function nextSlide(){
 
@@ -1575,9 +1933,99 @@ function nextSlide(){
 }
 
 
-/* =========================
+/* =====================================================
+   YES BUTTON JOKE
+===================================================== */
+
+let yesAttempts = 0;
+
+
+function yesClicked(){
+
+    const button =
+        document.getElementById(
+            "yesButton"
+        );
+
+
+    const message =
+        document.getElementById(
+            "noMessage"
+        );
+
+
+    yesAttempts++;
+
+
+    /* ==========================================
+       FIRST ATTEMPT
+    ========================================== */
+
+    if(yesAttempts === 1){
+
+        message.textContent =
+            "Itna easily nhi 😈😂";
+
+
+        button.style.transform =
+            "translate(90px,-45px) rotate(8deg)";
+
+
+        return;
+
+    }
+
+
+    /* ==========================================
+       SECOND ATTEMPT
+    ========================================== */
+
+    if(yesAttempts === 2){
+
+        message.textContent =
+            "Areee thoda effort karo 😂🐼";
+
+
+        button.style.transform =
+            "translate(-100px,35px) rotate(-8deg)";
+
+
+        return;
+
+    }
+
+
+    /* ==========================================
+       THIRD ATTEMPT
+    ========================================== */
+
+    if(yesAttempts === 3){
+
+        message.textContent =
+            "Okiii okiii... ab allowed hai 😭💗";
+
+
+        button.style.transform =
+            "translate(0,0) scale(1.08)";
+
+
+        setTimeout(function(){
+
+            nextSlide();
+
+        },500);
+
+
+        return;
+
+    }
+
+}
+
+
+/* =====================================================
    NO BUTTON
-========================= */
+===================================================== */
 
 let noCount = 0;
 
@@ -1602,6 +2050,7 @@ function noButton(){
     document.getElementById(
         "noMessage"
     ).textContent =
+
         messages[
             Math.min(
                 noCount,
@@ -1615,9 +2064,9 @@ function noButton(){
 }
 
 
-/* ==================================================
+/* =====================================================
    IMAGE ERROR CHECK
-================================================== */
+===================================================== */
 
 document
     .querySelectorAll("img")
@@ -1641,9 +2090,9 @@ document
     });
 
 
-/* ==================================================
+/* =====================================================
    VIDEO ERROR CHECK
-================================================== */
+===================================================== */
 
 const video =
     document.getElementById(
@@ -1660,14 +2109,12 @@ video.addEventListener(
             video.currentSrc
         );
 
-        alert(
-            "Video couldn't be loaded. Check that birthday-video.mp4 is beside index.html."
-        );
-
     }
 );
 
 </script>
 
+
 </body>
+
 </html>
