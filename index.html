@@ -1,141 +1,113 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>For Aastha 🐼🌷</title>
 
-
 <style>
 
-/* =====================================================
-   BASIC RESET
-===================================================== */
+/* =========================
+   RESET
+========================= */
 
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-
 
 html,
-body{
-
-    width:100%;
-
-    min-height:100%;
-
-    font-family:
-        "Trebuchet MS",
-        Arial,
-        sans-serif;
-
-    background:#fffafd;
-
-    color:#694f5d;
+body {
+    width: 100%;
+    min-height: 100%;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: #fffafd;
+    color: #694f5d;
 }
 
 
-/* =====================================================
-   MAIN APP
+/* =========================
+   APP
+========================= */
 
-   IMPORTANT:
-   We allow a LITTLE scrolling on small screens.
-===================================================== */
-
-#app{
-
-    position:relative;
-
-    width:100%;
-
-    min-height:100vh;
-
-    overflow-x:hidden;
+#app {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 
-/* =====================================================
+/* =========================
    SLIDES
-===================================================== */
+========================= */
 
-.slide{
+.slide {
 
-    position:absolute;
+    position: absolute;
 
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
 
-    width:100%;
+    width: 100%;
+    min-height: 100vh;
 
-    min-height:100vh;
+    padding: 25px 20px 90px;
 
-    padding:
-        25px
-        20px
-        90px;
+    display: flex;
 
-    display:flex;
+    justify-content: center;
+    align-items: center;
 
-    justify-content:center;
+    overflow-y: auto;
+    overflow-x: hidden;
 
-    align-items:center;
+    opacity: 0;
+    visibility: hidden;
 
-    overflow-y:auto;
-
-    overflow-x:hidden;
-
-    opacity:0;
-
-    visibility:hidden;
-
-    transform:translateX(100%);
+    transform: translateX(100%);
 
     transition:
-        transform .7s ease,
-        opacity .7s ease,
-        visibility .7s;
+        transform 0.7s ease,
+        opacity 0.7s ease,
+        visibility 0.7s;
 }
 
 
-/* ACTIVE SLIDE */
+/* ACTIVE */
 
-.slide.active{
+.slide.active {
 
-    opacity:1;
+    opacity: 1;
 
-    visibility:visible;
+    visibility: visible;
 
-    transform:translateX(0);
+    transform: translateX(0);
 }
 
 
-/* OLD SLIDE */
+/* PREVIOUS */
 
-.slide.old{
+.slide.old {
 
-    opacity:0;
+    opacity: 0;
 
-    visibility:hidden;
+    visibility: hidden;
 
-    transform:translateX(-100%);
+    transform: translateX(-100%);
 }
 
 
-/* =====================================================
-   PASTEL BACKGROUNDS
-===================================================== */
+/* =========================
+   BACKGROUNDS
+========================= */
 
-.pastel{
+.pastel {
 
     background:
 
@@ -155,7 +127,7 @@ body{
 }
 
 
-.soft{
+.soft {
 
     background:
 
@@ -169,46 +141,43 @@ body{
 }
 
 
-/* =====================================================
-   GENERAL CARD
-===================================================== */
+/* =========================
+   CARD
+========================= */
 
-.card{
+.card {
 
-    width:min(720px,94%);
+    width: min(720px, 94%);
 
-    padding:40px 28px;
+    padding: 40px 28px;
 
-    text-align:center;
+    text-align: center;
 
-    background:
-        rgba(255,255,255,.94);
+    background: rgba(255,255,255,0.95);
 
-    border-radius:32px;
+    border-radius: 32px;
 
     box-shadow:
-        0 20px 70px
-        rgba(180,110,140,.18);
+        0 20px 70px rgba(180,110,140,0.18);
 
-    animation:
-        cardIn .8s ease;
+    animation: cardIn 0.8s ease;
 }
 
 
-@keyframes cardIn{
+@keyframes cardIn {
 
-    from{
+    from {
 
-        opacity:0;
+        opacity: 0;
 
         transform:
-            scale(.8)
+            scale(0.8)
             translateY(30px);
     }
 
-    to{
+    to {
 
-        opacity:1;
+        opacity: 1;
 
         transform:
             scale(1)
@@ -217,13 +186,13 @@ body{
 }
 
 
-/* =====================================================
+/* =========================
    TEXT
-===================================================== */
+========================= */
 
-h1{
+h1 {
 
-    color:#d45e90;
+    color: #d45e90;
 
     font-size:
         clamp(
@@ -234,9 +203,9 @@ h1{
 }
 
 
-h2{
+h2 {
 
-    color:#ce6c96;
+    color: #ce6c96;
 
     font-size:
         clamp(
@@ -247,59 +216,61 @@ h2{
 }
 
 
-p{
+p {
 
-    margin-top:14px;
+    margin-top: 14px;
 
-    line-height:1.7;
+    line-height: 1.7;
 
-    font-size:1.05rem;
+    font-size: 1.05rem;
 }
 
 
-/* =====================================================
+/* =========================
    BUTTONS
-===================================================== */
+========================= */
 
-.buttons{
+.buttons {
 
-    display:flex;
+    display: flex;
 
-    justify-content:center;
+    justify-content: center;
 
-    flex-wrap:wrap;
+    align-items: center;
 
-    gap:12px;
+    flex-wrap: wrap;
 
-    margin-top:25px;
+    gap: 12px;
+
+    margin-top: 25px;
 }
 
 
-button{
+button {
 
-    border:none;
+    border: none;
 
-    padding:14px 28px;
+    padding: 14px 28px;
 
-    border-radius:50px;
+    border-radius: 50px;
 
-    background:#f3e8ee;
+    background: #f3e8ee;
 
-    color:#694f5d;
+    color: #694f5d;
 
-    font-family:inherit;
+    font-family: inherit;
 
-    font-size:1rem;
+    font-size: 1rem;
 
-    cursor:pointer;
+    cursor: pointer;
 
     transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 
-button:hover{
+button:hover {
 
     transform:
         translateY(-4px)
@@ -307,25 +278,24 @@ button:hover{
 }
 
 
-.next{
+.next {
 
-    background:#dc79a2;
+    background: #dc79a2;
 
-    color:white;
+    color: white;
 
     box-shadow:
-        0 8px 25px
-        rgba(220,121,162,.25);
+        0 8px 25px rgba(220,121,162,0.25);
 }
 
 
-/* =====================================================
+/* =========================
    PANDA
-===================================================== */
+========================= */
 
-.panda-big{
+.panda-big {
 
-    font-size:80px;
+    font-size: 80px;
 
     animation:
         pandaBounce
@@ -335,9 +305,9 @@ button:hover{
 }
 
 
-@keyframes pandaBounce{
+@keyframes pandaBounce {
 
-    50%{
+    50% {
 
         transform:
             translateY(-12px)
@@ -346,101 +316,100 @@ button:hover{
 }
 
 
-/* =====================================================
-   NO MESSAGE
-===================================================== */
+/* =========================
+   MESSAGES
+========================= */
 
-#noMessage{
+#noMessage {
 
-    min-height:28px;
+    min-height: 30px;
 
-    color:#ce638f;
+    color: #ce638f;
 
-    margin-top:12px;
+    margin-top: 12px;
+
+    font-weight: bold;
 }
 
 
-/* =====================================================
-   YES BUTTON JUMP AREA
-===================================================== */
+/* =========================
+   YES BUTTON AREA
+========================= */
 
-.yes-area{
+.yes-area {
 
-    position:relative;
+    position: relative;
 
-    min-height:65px;
+    width: 190px;
 
-    min-width:180px;
+    height: 70px;
 
-    display:flex;
+    display: flex;
 
-    justify-content:center;
+    justify-content: center;
 
-    align-items:center;
+    align-items: center;
 }
 
 
-#yesButton{
+#yesButton {
 
-    position:relative;
+    position: relative;
 
-    z-index:10;
+    z-index: 10;
 
     transition:
-        left .3s ease,
-        top .3s ease,
-        transform .2s ease;
+        transform 0.35s ease;
 }
 
 
-/* =====================================================
+/* =========================
    MEMORY SLIDE
-===================================================== */
+========================= */
 
-.memory-slide{
+.memory-slide {
 
-    flex-direction:column;
+    flex-direction: column;
 
-    text-align:center;
+    text-align: center;
 
-    gap:8px;
+    justify-content: flex-start;
 
-    justify-content:
-        flex-start;
+    gap: 10px;
 }
 
 
-.memory-title{
+.memory-title {
 
-    width:100%;
+    width: 100%;
 
-    text-align:center;
+    text-align: center;
 
-    margin-top:5px;
+    margin-top: 5px;
 
-    z-index:20;
+    z-index: 20;
 }
 
 
-/* =====================================================
+/* =========================
    HEART AREA
-===================================================== */
+========================= */
 
-.heart-area{
+.heart-area {
 
-    position:relative;
+    position: relative;
 
-    width:min(88vw,650px);
+    width: min(88vw, 650px);
 
-    height:min(75vh,650px);
+    height: min(75vh, 650px);
 
-    min-height:500px;
+    min-height: 500px;
 
-    margin-top:20px;
+    margin-top: 20px;
 
-    flex-shrink:0;
+    flex-shrink: 0;
 
-    border-radius:30px;
+    border-radius: 30px;
 
     background:
 
@@ -451,56 +420,52 @@ button:hover{
         );
 
     border:
-        2px dashed
-        #efb5cb;
+        2px dashed #efb5cb;
 
     box-shadow:
         0 15px 60px
-        rgba(200,120,155,.12);
+        rgba(200,120,155,0.12);
 
-    overflow:hidden;
+    overflow: hidden;
 }
 
 
-/* =====================================================
-   MEMORY PHOTOS
-===================================================== */
+/* =========================
+   PHOTOS
+========================= */
 
-.heart-photo{
+.heart-photo {
 
-    position:absolute;
+    position: absolute;
 
-    width:115px;
+    width: 115px;
 
-    height:115px;
+    height: 115px;
 
-    padding:6px;
+    padding: 6px;
 
-    object-fit:cover;
+    object-fit: cover;
 
-    background:white;
+    background: white;
 
-    border-radius:16px;
+    border-radius: 16px;
 
     box-shadow:
         0 10px 25px
-        rgba(160,100,130,.25);
+        rgba(160,100,130,0.25);
 
-    opacity:0;
+    opacity: 0;
 
-    z-index:5;
+    z-index: 5;
 }
 
 
-/* =====================================================
-   HEART POSITIONS
-===================================================== */
+/* HEART POSITIONS */
 
-.photo1{
+.photo1 {
 
-    left:26%;
-
-    top:16%;
+    left: 26%;
+    top: 16%;
 
     transform:
         translateX(-400px)
@@ -508,11 +473,10 @@ button:hover{
 }
 
 
-.photo2{
+.photo2 {
 
-    left:56%;
-
-    top:16%;
+    left: 56%;
+    top: 16%;
 
     transform:
         translateY(-400px)
@@ -520,11 +484,10 @@ button:hover{
 }
 
 
-.photo3{
+.photo3 {
 
-    left:12%;
-
-    top:40%;
+    left: 12%;
+    top: 40%;
 
     transform:
         translateX(-400px)
@@ -532,11 +495,10 @@ button:hover{
 }
 
 
-.photo4{
+.photo4 {
 
-    left:69%;
-
-    top:40%;
+    left: 69%;
+    top: 40%;
 
     transform:
         translateX(400px)
@@ -544,11 +506,10 @@ button:hover{
 }
 
 
-.photo5{
+.photo5 {
 
-    left:27%;
-
-    top:58%;
+    left: 27%;
+    top: 58%;
 
     transform:
         translateY(400px)
@@ -556,11 +517,10 @@ button:hover{
 }
 
 
-.photo6{
+.photo6 {
 
-    left:55%;
-
-    top:58%;
+    left: 55%;
+    top: 58%;
 
     transform:
         translateY(400px)
@@ -568,11 +528,10 @@ button:hover{
 }
 
 
-.photo7{
+.photo7 {
 
-    left:42%;
-
-    top:73%;
+    left: 42%;
+    top: 73%;
 
     transform:
         translateY(400px)
@@ -580,55 +539,55 @@ button:hover{
 }
 
 
-/* =====================================================
-   HEART ANIMATION
-===================================================== */
+/* =========================
+   PHOTO ANIMATIONS
+========================= */
 
-.heart-area.animate .photo1{
+.heart-area.animate .photo1 {
 
     animation:
         photo1In
         1s
         ease
-        .1s
+        0.1s
         forwards;
 }
 
 
-.heart-area.animate .photo2{
+.heart-area.animate .photo2 {
 
     animation:
         photo2In
         1s
         ease
-        .35s
+        0.35s
         forwards;
 }
 
 
-.heart-area.animate .photo3{
+.heart-area.animate .photo3 {
 
     animation:
         photo3In
         1s
         ease
-        .6s
+        0.6s
         forwards;
 }
 
 
-.heart-area.animate .photo4{
+.heart-area.animate .photo4 {
 
     animation:
         photo4In
         1s
         ease
-        .85s
+        0.85s
         forwards;
 }
 
 
-.heart-area.animate .photo5{
+.heart-area.animate .photo5 {
 
     animation:
         photo5In
@@ -639,7 +598,7 @@ button:hover{
 }
 
 
-.heart-area.animate .photo6{
+.heart-area.animate .photo6 {
 
     animation:
         photo6In
@@ -650,7 +609,7 @@ button:hover{
 }
 
 
-.heart-area.animate .photo7{
+.heart-area.animate .photo7 {
 
     animation:
         photo7In
@@ -661,15 +620,15 @@ button:hover{
 }
 
 
-/* =====================================================
-   PHOTO ANIMATION KEYFRAMES
-===================================================== */
+/* =========================
+   PHOTO KEYFRAMES
+========================= */
 
-@keyframes photo1In{
+@keyframes photo1In {
 
-    to{
+    to {
 
-        opacity:1;
+        opacity: 1;
 
         transform:
             translate(0)
@@ -678,11 +637,11 @@ button:hover{
 }
 
 
-@keyframes photo2In{
+@keyframes photo2In {
 
-    to{
+    to {
 
-        opacity:1;
+        opacity: 1;
 
         transform:
             translate(0)
@@ -691,11 +650,11 @@ button:hover{
 }
 
 
-@keyframes photo3In{
+@keyframes photo3In {
 
-    to{
+    to {
 
-        opacity:1;
+        opacity: 1;
 
         transform:
             translate(0)
@@ -704,11 +663,11 @@ button:hover{
 }
 
 
-@keyframes photo4In{
+@keyframes photo4In {
 
-    to{
+    to {
 
-        opacity:1;
+        opacity: 1;
 
         transform:
             translate(0)
@@ -717,11 +676,11 @@ button:hover{
 }
 
 
-@keyframes photo5In{
+@keyframes photo5In {
 
-    to{
+    to {
 
-        opacity:1;
+        opacity: 1;
 
         transform:
             translate(0)
@@ -730,11 +689,11 @@ button:hover{
 }
 
 
-@keyframes photo6In{
+@keyframes photo6In {
 
-    to{
+    to {
 
-        opacity:1;
+        opacity: 1;
 
         transform:
             translate(0)
@@ -743,11 +702,11 @@ button:hover{
 }
 
 
-@keyframes photo7In{
+@keyframes photo7In {
 
-    to{
+    to {
 
-        opacity:1;
+        opacity: 1;
 
         transform:
             translate(0)
@@ -756,46 +715,45 @@ button:hover{
 }
 
 
-/* =====================================================
+/* =========================
    CENTER HEART
-===================================================== */
+========================= */
 
-.heart{
+.heart {
 
-    position:absolute;
+    position: absolute;
 
-    left:50%;
-
-    top:45%;
+    left: 50%;
+    top: 45%;
 
     transform:
         translate(-50%,-50%)
         scale(0);
 
-    font-size:55px;
+    font-size: 55px;
 
-    opacity:0;
+    opacity: 0;
 
-    z-index:2;
+    z-index: 2;
 }
 
 
-.heart-area.animate .heart{
+.heart-area.animate .heart {
 
     animation:
         heartAppear
-        .8s
+        0.8s
         ease
         2.7s
         forwards;
 }
 
 
-@keyframes heartAppear{
+@keyframes heartAppear {
 
-    to{
+    to {
 
-        opacity:1;
+        opacity: 1;
 
         transform:
             translate(-50%,-50%)
@@ -804,139 +762,139 @@ button:hover{
 }
 
 
-/* =====================================================
-   VIDEO SLIDE
-===================================================== */
+/* =========================
+   VIDEO
+========================= */
 
-.video-slide{
+.video-slide {
 
-    flex-direction:column;
+    flex-direction: column;
 
-    gap:15px;
+    gap: 15px;
 
-    text-align:center;
+    text-align: center;
 }
 
 
-.video-box{
+.video-box {
 
-    width:min(850px,94vw);
+    width: min(850px, 94vw);
 
-    padding:10px;
+    padding: 10px;
 
-    background:white;
+    background: white;
 
-    border-radius:28px;
+    border-radius: 28px;
 
     box-shadow:
         0 20px 60px
-        rgba(170,110,140,.2);
+        rgba(170,110,140,0.2);
 }
 
 
-video{
+video {
 
-    display:block;
+    display: block;
 
-    width:100%;
+    width: 100%;
 
-    max-height:68vh;
+    max-height: 68vh;
 
-    background:#f8edf2;
+    background: #f8edf2;
 
-    border-radius:20px;
+    border-radius: 20px;
 }
 
 
-/* =====================================================
+/* =========================
    PNG SCENE
-===================================================== */
+========================= */
 
-.png-slide{
+.png-slide {
 
-    position:relative;
+    position: relative;
 
-    width:100%;
+    width: 100%;
 
-    min-height:80vh;
+    min-height: 80vh;
 
-    overflow:visible;
+    overflow: visible;
 
-    display:flex;
+    display: flex;
 
-    justify-content:center;
+    justify-content: center;
 
-    align-items:center;
+    align-items: center;
 }
 
 
-.scene-title{
+.scene-title {
 
-    position:absolute;
+    position: absolute;
 
-    top:10px;
+    top: 10px;
 
-    left:0;
+    left: 0;
 
-    width:100%;
+    width: 100%;
 
-    text-align:center;
+    text-align: center;
 
-    z-index:10;
+    z-index: 10;
 }
 
 
-.scene{
+.scene {
 
-    position:relative;
+    position: relative;
 
-    width:min(900px,100%);
+    width: min(900px, 100%);
 
-    height:65vh;
+    height: 65vh;
 
-    min-height:450px;
+    min-height: 450px;
 }
 
 
-.cutout{
+.cutout {
 
-    position:absolute;
+    position: absolute;
 
-    object-fit:contain;
+    object-fit: contain;
 
-    opacity:0;
+    opacity: 0;
 
     filter:
         drop-shadow(
             0 12px 15px
-            rgba(180,110,140,.2)
+            rgba(180,110,140,0.2)
         );
 }
 
 
-.couple{
+.couple {
 
-    width:min(55vw,380px);
+    width: min(55vw,380px);
 
-    max-height:55vh;
+    max-height: 55vh;
 
-    left:50%;
+    left: 50%;
 
-    bottom:5%;
+    bottom: 5%;
 
     transform:
         translate(-50%,100vh)
-        scale(.8);
+        scale(0.8);
 }
 
 
-.panda{
+.panda {
 
-    width:130px;
+    width: 130px;
 
-    left:2%;
+    left: 2%;
 
-    top:30%;
+    top: 30%;
 
     transform:
         translateX(-300px)
@@ -944,13 +902,13 @@ video{
 }
 
 
-.tulips{
+.tulips {
 
-    width:150px;
+    width: 150px;
 
-    right:2%;
+    right: 2%;
 
-    top:25%;
+    top: 25%;
 
     transform:
         translateX(300px)
@@ -958,33 +916,33 @@ video{
 }
 
 
-/* =====================================================
+/* =========================
    PNG ANIMATION
-===================================================== */
+========================= */
 
-.scene.play .couple{
+.scene.play .couple {
 
     animation:
         coupleIn
         1.2s
         ease
-        .2s
+        0.2s
         forwards;
 }
 
 
-.scene.play .panda{
+.scene.play .panda {
 
     animation:
         pandaIn
         1s
         ease
-        .8s
+        0.8s
         forwards;
 }
 
 
-.scene.play .tulips{
+.scene.play .tulips {
 
     animation:
         tulipIn
@@ -995,11 +953,11 @@ video{
 }
 
 
-@keyframes coupleIn{
+@keyframes coupleIn {
 
-    to{
+    to {
 
-        opacity:1;
+        opacity: 1;
 
         transform:
             translate(-50%,0)
@@ -1008,11 +966,11 @@ video{
 }
 
 
-@keyframes pandaIn{
+@keyframes pandaIn {
 
-    to{
+    to {
 
-        opacity:1;
+        opacity: 1;
 
         transform:
             translateX(0)
@@ -1021,11 +979,11 @@ video{
 }
 
 
-@keyframes tulipIn{
+@keyframes tulipIn {
 
-    to{
+    to {
 
-        opacity:1;
+        opacity: 1;
 
         transform:
             translateX(0)
@@ -1034,25 +992,25 @@ video{
 }
 
 
-/* =====================================================
-   FINAL CARD
-===================================================== */
+/* =========================
+   FINAL
+========================= */
 
-.final-card{
+.final-card {
 
-    width:min(700px,94%);
+    width: min(700px,94%);
 
-    padding:50px 25px;
+    padding: 50px 25px;
 
-    text-align:center;
+    text-align: center;
 
-    background:white;
+    background: white;
 
-    border-radius:35px;
+    border-radius: 35px;
 
     box-shadow:
         0 25px 75px
-        rgba(180,110,140,.2);
+        rgba(180,110,140,0.2);
 
     animation:
         finalIn
@@ -1061,9 +1019,9 @@ video{
 }
 
 
-.gift{
+.gift {
 
-    font-size:75px;
+    font-size: 75px;
 
     animation:
         giftShake
@@ -1073,235 +1031,220 @@ video{
 }
 
 
-@keyframes giftShake{
+@keyframes giftShake {
 
-    0%,100%{
+    0%,100% {
 
-        transform:rotate(0);
+        transform: rotate(0);
     }
 
-    25%{
+    25% {
 
-        transform:rotate(-6deg);
+        transform: rotate(-6deg);
     }
 
-    75%{
+    75% {
 
-        transform:rotate(6deg);
-    }
-}
-
-
-@keyframes finalIn{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            scale(.7);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-            scale(1);
+        transform: rotate(6deg);
     }
 }
 
 
-/* =====================================================
-   SMALL PHONE FIXES
-===================================================== */
+@keyframes finalIn {
 
-@media(max-width:600px){
+    from {
 
-    .slide{
+        opacity: 0;
 
-        align-items:
-            flex-start;
-
-        padding-top:30px;
-
-        padding-bottom:100px;
+        transform: scale(0.7);
     }
 
+    to {
 
-    .card{
+        opacity: 1;
 
-        margin-top:20px;
-
-        padding:
-            30px
-            20px;
+        transform: scale(1);
     }
-
-
-    .heart-area{
-
-        width:94vw;
-
-        height:68vh;
-
-        min-height:470px;
-    }
-
-
-    .heart-photo{
-
-        width:78px;
-
-        height:78px;
-
-        padding:4px;
-    }
-
-
-    .heart{
-
-        font-size:40px;
-    }
-
-
-    .photo1{
-
-        left:20%;
-
-        top:18%;
-    }
-
-
-    .photo2{
-
-        left:58%;
-
-        top:18%;
-    }
-
-
-    .photo3{
-
-        left:7%;
-
-        top:40%;
-    }
-
-
-    .photo4{
-
-        left:67%;
-
-        top:40%;
-    }
-
-
-    .photo5{
-
-        left:21%;
-
-        top:58%;
-    }
-
-
-    .photo6{
-
-        left:58%;
-
-        top:58%;
-    }
-
-
-    .photo7{
-
-        left:42%;
-
-        top:73%;
-    }
-
-
-    .panda{
-
-        width:80px;
-    }
-
-
-    .tulips{
-
-        width:90px;
-    }
-
-
-    .scene{
-
-        min-height:500px;
-
-        height:65vh;
-    }
-
-
-    .couple{
-
-        width:55vw;
-    }
-
 }
 
 
-/* =====================================================
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px) {
+
+    .slide {
+
+        align-items: flex-start;
+
+        padding-top: 30px;
+
+        padding-bottom: 100px;
+    }
+
+
+    .card {
+
+        margin-top: 20px;
+
+        padding: 30px 20px;
+    }
+
+
+    .heart-area {
+
+        width: 94vw;
+
+        height: 68vh;
+
+        min-height: 470px;
+    }
+
+
+    .heart-photo {
+
+        width: 78px;
+
+        height: 78px;
+
+        padding: 4px;
+    }
+
+
+    .heart {
+
+        font-size: 40px;
+    }
+
+
+    .photo1 {
+
+        left: 20%;
+        top: 18%;
+    }
+
+
+    .photo2 {
+
+        left: 58%;
+        top: 18%;
+    }
+
+
+    .photo3 {
+
+        left: 7%;
+        top: 40%;
+    }
+
+
+    .photo4 {
+
+        left: 67%;
+        top: 40%;
+    }
+
+
+    .photo5 {
+
+        left: 21%;
+        top: 58%;
+    }
+
+
+    .photo6 {
+
+        left: 58%;
+        top: 58%;
+    }
+
+
+    .photo7 {
+
+        left: 42%;
+        top: 73%;
+    }
+
+
+    .panda {
+
+        width: 80px;
+    }
+
+
+    .tulips {
+
+        width: 90px;
+    }
+
+
+    .scene {
+
+        min-height: 500px;
+
+        height: 65vh;
+    }
+
+
+    .couple {
+
+        width: 55vw;
+    }
+}
+
+
+/* =========================
    VERY SMALL PHONES
-===================================================== */
+========================= */
 
-@media(max-width:380px){
+@media(max-width:380px) {
 
-    .slide{
+    .slide {
 
-        padding-left:12px;
+        padding-left: 12px;
 
-        padding-right:12px;
+        padding-right: 12px;
     }
 
 
-    .heart-area{
+    .heart-area {
 
-        min-height:450px;
+        min-height: 450px;
 
-        height:65vh;
+        height: 65vh;
     }
 
 
-    .heart-photo{
+    .heart-photo {
 
-        width:68px;
+        width: 68px;
 
-        height:68px;
+        height: 68px;
     }
 
 
-    h1{
+    h1 {
 
-        font-size:2.2rem;
+        font-size: 2.2rem;
     }
 
 
-    h2{
+    h2 {
 
-        font-size:1.6rem;
+        font-size: 1.6rem;
     }
 
 
-    button{
+    button {
 
         padding:
             12px
             22px;
     }
-
 }
 
 </style>
-
 </head>
 
 
@@ -1320,19 +1263,15 @@ video{
     id="slide1"
 >
 
-
 <div class="card">
-
 
 <div class="panda-big">
 🐼
 </div>
 
-
 <h1>
 Heyyy Aasthaaa 👀
 </h1>
-
 
 <p>
 
@@ -1348,14 +1287,12 @@ Wanna open it?
 <div class="buttons">
 
 
-<!-- YES AREA -->
-
 <div class="yes-area">
 
 <button
     id="yesButton"
     class="next"
-    onclick="yesClicked()"
+    type="button"
 >
 
 YESSS 💗
@@ -1365,10 +1302,9 @@ YESSS 💗
 </div>
 
 
-<!-- NO -->
-
 <button
-    onclick="noButton()"
+    id="noButton"
+    type="button"
 >
 
 NOOO 🙃
@@ -1384,13 +1320,12 @@ NOOO 🙃
 
 </div>
 
-
 </section>
 
 
 
 <!-- =====================================================
-     SLIDE 2 — MEMORY HEART
+     SLIDE 2
 ===================================================== -->
 
 <section
@@ -1477,7 +1412,8 @@ Some moments just belong together.
 
 <button
     class="next"
-    onclick="nextSlide()"
+    id="memoryNext"
+    type="button"
 >
 
 NEXT 🌷
@@ -1490,7 +1426,7 @@ NEXT 🌷
 
 
 <!-- =====================================================
-     SLIDE 3 — MESSAGE
+     SLIDE 3
 ===================================================== -->
 
 <section
@@ -1552,7 +1488,8 @@ Happpyyy Birthadaayyy once againnn 🥳💗
 
 <button
     class="next"
-    onclick="nextSlide()"
+    id="messageNext"
+    type="button"
 >
 
 ONE MORE THING... 👀
@@ -1562,13 +1499,12 @@ ONE MORE THING... 👀
 
 </div>
 
-
 </section>
 
 
 
 <!-- =====================================================
-     SLIDE 4 — VIDEO
+     SLIDE 4
 ===================================================== -->
 
 <section
@@ -1597,15 +1533,12 @@ Watch thisss before going ahead 🥹💗
     preload="metadata"
 >
 
-
 <source
     src="./birthday-video.mp4"
     type="video/mp4"
 >
 
-
 Your browser doesn't support MP4 video.
-
 
 </video>
 
@@ -1615,7 +1548,8 @@ Your browser doesn't support MP4 video.
 
 <button
     class="next"
-    onclick="nextSlide()"
+    id="videoNext"
+    type="button"
 >
 
 NEXT 🐼
@@ -1628,7 +1562,7 @@ NEXT 🐼
 
 
 <!-- =====================================================
-     SLIDE 5 — PNG ANIMATION
+     SLIDE 5
 ===================================================== -->
 
 <section
@@ -1642,7 +1576,6 @@ NEXT 🐼
 
 <div class="scene-title">
 
-
 <h2>
 One More Little Memory 💗
 </h2>
@@ -1651,7 +1584,6 @@ One More Little Memory 💗
 <p>
 Some people make ordinary moments special.
 </p>
-
 
 </div>
 
@@ -1688,11 +1620,12 @@ Some people make ordinary moments special.
 
 <button
     class="next"
+    id="pngNext"
+    type="button"
     style="
         position:absolute;
         bottom:20px;
     "
-    onclick="nextSlide()"
 >
 
 CONTINUE 💗
@@ -1702,13 +1635,12 @@ CONTINUE 💗
 
 </div>
 
-
 </section>
 
 
 
 <!-- =====================================================
-     SLIDE 6 — FINAL
+     SLIDE 6
 ===================================================== -->
 
 <section
@@ -1782,7 +1714,6 @@ Happpyyy Birthadaayyy once againnn! 🥹💗
 
 </div>
 
-
 </section>
 
 
@@ -1801,13 +1732,12 @@ let currentSlide = 1;
 const totalSlides = 6;
 
 
-function showSlide(number){
+function showSlide(number) {
 
-    if(
+    if (
         number < 1 ||
         number > totalSlides
-    ){
-
+    ) {
         return;
     }
 
@@ -1824,34 +1754,22 @@ function showSlide(number){
         );
 
 
-    oldSlide.classList.remove(
-        "active"
-    );
+    oldSlide.classList.remove("active");
+
+    oldSlide.classList.add("old");
 
 
-    oldSlide.classList.add(
-        "old"
-    );
+    newSlide.classList.remove("old");
 
-
-    newSlide.classList.remove(
-        "old"
-    );
-
-
-    newSlide.classList.add(
-        "active"
-    );
+    newSlide.classList.add("active");
 
 
     currentSlide = number;
 
 
-    /* ==========================================
-       MEMORY HEART
-    ========================================== */
+    /* MEMORY ANIMATION */
 
-    if(number === 2){
+    if (number === 2) {
 
         const heartArea =
             document.getElementById(
@@ -1870,15 +1788,12 @@ function showSlide(number){
         heartArea.classList.add(
             "animate"
         );
-
     }
 
 
-    /* ==========================================
-       PNG SCENE
-    ========================================== */
+    /* PNG ANIMATION */
 
-    if(number === 5){
+    if (number === 5) {
 
         const scene =
             document.getElementById(
@@ -1886,24 +1801,17 @@ function showSlide(number){
             );
 
 
-        scene.classList.remove(
-            "play"
-        );
+        scene.classList.remove("play");
 
 
         void scene.offsetWidth;
 
 
-        scene.classList.add(
-            "play"
-        );
-
+        scene.classList.add("play");
     }
 
 
-    /* ==========================================
-       VIDEO
-    ========================================== */
+    /* VIDEO */
 
     const video =
         document.getElementById(
@@ -1911,36 +1819,21 @@ function showSlide(number){
         );
 
 
-    if(number !== 4){
+    if (number !== 4) {
 
         video.pause();
-
     }
-
 }
 
 
 /* =====================================================
-   NEXT SLIDE
-===================================================== */
-
-function nextSlide(){
-
-    showSlide(
-        currentSlide + 1
-    );
-
-}
-
-
-/* =====================================================
-   YES BUTTON JOKE
+   YES BUTTON
 ===================================================== */
 
 let yesAttempts = 0;
 
 
-function yesClicked(){
+function yesClicked() {
 
     const button =
         document.getElementById(
@@ -1957,49 +1850,41 @@ function yesClicked(){
     yesAttempts++;
 
 
-    /* ==========================================
-       FIRST ATTEMPT
-    ========================================== */
+    /* FIRST CLICK */
 
-    if(yesAttempts === 1){
+    if (yesAttempts === 1) {
 
         message.textContent =
             "Itna easily nhi 😈😂";
 
 
         button.style.transform =
-            "translate(90px,-45px) rotate(8deg)";
+            "translate(90px, -40px) rotate(8deg)";
 
 
         return;
-
     }
 
 
-    /* ==========================================
-       SECOND ATTEMPT
-    ========================================== */
+    /* SECOND CLICK */
 
-    if(yesAttempts === 2){
+    if (yesAttempts === 2) {
 
         message.textContent =
             "Areee thoda effort karo 😂🐼";
 
 
         button.style.transform =
-            "translate(-100px,35px) rotate(-8deg)";
+            "translate(-90px, 40px) rotate(-8deg)";
 
 
         return;
-
     }
 
 
-    /* ==========================================
-       THIRD ATTEMPT
-    ========================================== */
+    /* THIRD CLICK */
 
-    if(yesAttempts === 3){
+    if (yesAttempts >= 3) {
 
         message.textContent =
             "Okiii okiii... ab allowed hai 😭💗";
@@ -2009,17 +1894,15 @@ function yesClicked(){
             "translate(0,0) scale(1.08)";
 
 
-        setTimeout(function(){
+        setTimeout(function() {
 
-            nextSlide();
+            showSlide(2);
 
-        },500);
+        }, 500);
 
 
         return;
-
     }
-
 }
 
 
@@ -2030,7 +1913,7 @@ function yesClicked(){
 let noCount = 0;
 
 
-function noButton(){
+function noButton() {
 
     const messages = [
 
@@ -2060,8 +1943,80 @@ function noButton(){
 
 
     noCount++;
-
 }
+
+
+/* =====================================================
+   BUTTON EVENTS
+   ===================================================== */
+
+/*
+   We use addEventListener instead of inline
+   onclick so the buttons remain reliable.
+*/
+
+document
+    .getElementById("yesButton")
+    .addEventListener(
+        "click",
+        yesClicked
+    );
+
+
+document
+    .getElementById("noButton")
+    .addEventListener(
+        "click",
+        noButton
+    );
+
+
+document
+    .getElementById("memoryNext")
+    .addEventListener(
+        "click",
+        function() {
+
+            showSlide(3);
+
+        }
+    );
+
+
+document
+    .getElementById("messageNext")
+    .addEventListener(
+        "click",
+        function() {
+
+            showSlide(4);
+
+        }
+    );
+
+
+document
+    .getElementById("videoNext")
+    .addEventListener(
+        "click",
+        function() {
+
+            showSlide(5);
+
+        }
+    );
+
+
+document
+    .getElementById("pngNext")
+    .addEventListener(
+        "click",
+        function() {
+
+            showSlide(6);
+
+        }
+    );
 
 
 /* =====================================================
@@ -2070,19 +2025,16 @@ function noButton(){
 
 document
     .querySelectorAll("img")
-    .forEach(function(img){
+    .forEach(function(img) {
 
         img.addEventListener(
             "error",
-            function(){
+            function() {
 
                 console.error(
                     "IMAGE NOT FOUND:",
                     img.getAttribute("src")
                 );
-
-                img.style.border =
-                    "3px solid red";
 
             }
         );
@@ -2102,7 +2054,7 @@ const video =
 
 video.addEventListener(
     "error",
-    function(){
+    function() {
 
         console.error(
             "VIDEO ERROR:",
@@ -2116,5 +2068,4 @@ video.addEventListener(
 
 
 </body>
-
 </html>
