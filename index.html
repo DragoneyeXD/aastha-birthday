@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,346 +36,40 @@ body {
 
 
 /* =====================================================
-   SECRET INTRO SCREEN
+   FLAPPY BIRTHDAY INTRO — ONLY INTRO REPLACED
 ===================================================== */
-
 #secretIntro {
-
-    position: fixed;
-
-    inset: 0;
-
-    width: 100vw;
-    height: 100vh;
-
-    background: #000;
-
-    z-index: 99999;
-
-    overflow: hidden;
-
-    cursor: pointer;
-
-    touch-action: manipulation;
+    position: fixed; inset: 0; z-index: 99999;
+    width: 100%; height: 100dvh; overflow: hidden;
+    background: #f9eede; touch-action: none;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; color: #855e6e;
 }
-
-
-/* Canvas where cracks are drawn */
-
-#crackCanvas {
-
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    pointer-events: none;
-}
-
-
-/* Sparkles created by JS */
-
-.secret-particle {
-
-    position: absolute;
-
-    pointer-events: none;
-
-    z-index: 20;
-
-    font-size: 20px;
-
-    animation:
-        secretParticle
-        1.2s
-        ease-out
-        forwards;
-}
-
-@keyframes secretParticle {
-
-    0% {
-
-        opacity: 0;
-
-        transform:
-            translate(0,0)
-            scale(0.2)
-            rotate(0deg);
-    }
-
-    15% {
-
-        opacity: 1;
-    }
-
-    100% {
-
-        opacity: 0;
-
-        transform:
-            translate(
-                var(--move-x),
-                var(--move-y)
-            )
-            scale(1.2)
-            rotate(180deg);
-    }
-}
-
-
-/* Final explosion */
-/* =====================================================
-   4 CIRCLE INTRO IMAGES
-===================================================== */
-
-.secret-circle-images {
-
-    position: absolute;
-
-    inset: 0;
-
-    z-index: 10;
-
-    pointer-events: none;
-
-    opacity: 0;
-
-    transform: scale(0.7);
-
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-}
-
-.secret-circle-images img {
-
-    position: absolute;
-
-    width: 115px;
-
-    height: 115px;
-
-    object-fit: cover;
-
-    border-radius: 50%;
-
-    border: 4px solid white;
-
-    box-shadow:
-        0 0 25px rgba(255,255,255,0.7);
-
-    opacity: 0;
-}
-
-
-/* TOP LEFT */
-
-.secret-circle-images img:nth-child(1) {
-
-    left: 50%;
-
-    top: 50%;
-
-    transform:
-        translate(-50%,-50%)
-        translate(-170px,-170px);
-}
-
-
-/* TOP RIGHT */
-
-.secret-circle-images img:nth-child(2) {
-
-    left: 50%;
-
-    top: 50%;
-
-    transform:
-        translate(-50%,-50%)
-        translate(170px,-170px);
-}
-
-
-/* BOTTOM LEFT */
-
-.secret-circle-images img:nth-child(3) {
-
-    left: 50%;
-
-    top: 50%;
-
-    transform:
-        translate(-50%,-50%)
-        translate(-170px,170px);
-}
-
-
-/* BOTTOM RIGHT */
-
-.secret-circle-images img:nth-child(4) {
-
-    left: 50%;
-
-    top: 50%;
-
-    transform:
-        translate(-50%,-50%)
-        translate(170px,170px);
-}
-
-
-/* Show them ONLY at the final moment */
-
-#secretIntro.show-circle .secret-circle-images {
-
-    opacity: 1;
-
-    transform: scale(1);
-}
-
-
-#secretIntro.show-circle
-.secret-circle-images img {
-
-    opacity: 1;
-
-    transition:
-        opacity 0.7s ease,
-        transform 0.8s
-        cubic-bezier(
-            0.175,
-            0.885,
-            0.32,
-            1.275
-        );
-}
-.secret-burst {
-
-    position: absolute;
-
-    pointer-events: none;
-
-    left: 50%;
-    top: 50%;
-
-    transform:
-        translate(-50%,-50%)
-        scale(0);
-
-    font-size: 80px;
-
-    z-index: 50;
-
-    animation:
-        finalBurst
-        1.2s
-        ease-out
-        forwards;
-}
-
-@keyframes finalBurst {
-
-    0% {
-
-        opacity: 0;
-
-        transform:
-            translate(-50%,-50%)
-            scale(0);
-    }
-
-    30% {
-
-        opacity: 1;
-
-        transform:
-            translate(-50%,-50%)
-            scale(1.2);
-    }
-
-    100% {
-
-        opacity: 0;
-
-        transform:
-            translate(-50%,-50%)
-            scale(2.5);
-    }
-}
-
-
-/* White flash */
-
-#whiteFlash {
-
-    position: absolute;
-
-    inset: 0;
-
-    background: white;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    z-index: 100;
-}
-
-
-/* Reveal animation */
-
-#secretIntro.reveal {
-
-    animation:
-        introDisappear
-        1.2s
-        ease
-        forwards;
-}
-
-@keyframes introDisappear {
-
-    0% {
-        opacity: 1;
-    }
-
-    55% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-    }
-}
-
-#whiteFlash.active {
-
-    animation:
-        whiteFlashAnimation
-        0.8s
-        ease-out
-        forwards;
-}
-
-@keyframes whiteFlashAnimation {
-
-    0% {
-        opacity: 0;
-    }
-
-    25% {
-        opacity: 0.95;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
+#flappyHeader { position: absolute; top: max(15px, env(safe-area-inset-top)); z-index: 2;
+    text-align: center; width: 100%; pointer-events: none; }
+#flappyHeader h2 { font-size: clamp(21px, 5vw, 32px); color: #bb6d89; }
+#flappyHeader p { margin: 3px 0; font-size: 14px; }
+#flappyCanvas { display: block; width: 100%; height: 100%; }
+#flappyOverlay { position: absolute; inset: 0; display: flex; align-items: center;
+    justify-content: center; z-index: 3; background: rgba(255,245,236,.38); }
+#flappyCard { width: min(360px, 88vw); text-align: center; padding: 30px 20px;
+    border-radius: 28px; background: #fffaf5; box-shadow: 0 15px 55px #b9858b55; }
+#flappyCard h2 { font-size: 30px; color: #cb7194; }
+#flappyCard p { margin: 12px 0 20px; }
+#flappyButton { background: #d77b9c; color: white; font-weight: bold; }
+#flappyWin { position: absolute; inset: 0; z-index: 5; display: none;
+    align-items: center; justify-content: center; flex-direction: column;
+    background: #fff0e7; text-align: center; overflow: hidden; }
+#flappyWin strong { font-size: clamp(110px, 30vw, 230px); line-height: 1;
+    color: #d779a1; text-shadow: 0 8px 0 #f7c8d8;
+    animation: birthdayPop .75s cubic-bezier(.2,1.6,.4,1) both; }
+#flappyWin h2 { font-size: clamp(25px, 6vw, 44px); margin-top: 15px; }
+@keyframes birthdayPop { from { transform: scale(.05) rotate(-25deg); opacity: 0; }
+    to { transform: scale(1) rotate(0); opacity: 1; } }
+#secretIntro.reveal { animation: flappyFade 1s ease forwards; }
+@keyframes flappyFade { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+.flappyConfetti { position: absolute; top: -30px; animation: confettiDrop 3s linear forwards; }
+@keyframes confettiDrop { to { transform: translateY(110vh) rotate(700deg); opacity: 0; } }
 
 
 /* =====================================================
@@ -984,7 +679,6 @@ button:hover {
 
     overflow: hidden;
 }
-
 .next::after {
 
     content: "";
@@ -1824,7 +1518,7 @@ video {
         transform:
             scale(0.7)
             translateY(30px);
-    }
+                }
 
     to {
 
@@ -2042,6 +1736,101 @@ video {
     }
 }
 
+
+/* =====================================================
+   PREMIUM BUTTON FINISH — VISUALS ONLY
+===================================================== */
+button {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.7);
+    background-image: linear-gradient(160deg, rgba(255,255,255,.62), rgba(255,255,255,.08) 48%, rgba(133,65,95,.12));
+    box-shadow: inset 0 2px 2px rgba(255,255,255,.85),
+                inset 0 -3px 5px rgba(131,70,96,.12),
+                0 7px 0 rgba(143,83,110,.15),
+                0 12px 22px rgba(143,83,110,.17);
+    text-shadow: 0 1px 1px rgba(255,255,255,.3);
+    letter-spacing: .35px;
+    transition: transform .22s cubic-bezier(.2,.8,.2,1),
+                box-shadow .22s ease, filter .22s ease;
+}
+button:hover {
+    filter: brightness(1.045) saturate(1.08);
+    box-shadow: inset 0 2px 2px rgba(255,255,255,.9),
+                inset 0 -3px 5px rgba(131,70,96,.12),
+                0 9px 0 rgba(143,83,110,.12),
+                0 17px 28px rgba(143,83,110,.2);
+}
+button:active {
+    filter: brightness(.98);
+    box-shadow: inset 0 3px 7px rgba(105,65,85,.15),
+                0 2px 0 rgba(143,83,110,.15),
+                0 5px 12px rgba(143,83,110,.12);
+}
+button:focus-visible {
+    outline: 3px solid #c8789e;
+    outline-offset: 4px;
+}
+button.next, button.again-button, #flappyButton {
+    background-color: #dc79a2;
+    background-image: linear-gradient(165deg, #f7b5d0 0%, #e48cb2 35%, #c95f8f 100%);
+    color: white;
+    text-shadow: 0 1px 2px rgba(115,42,74,.35);
+    border-color: #f8c9db;
+}
+#flappyButton {
+    padding: 15px 32px;
+    font-size: 1.05rem;
+    border-radius: 50px;
+}
+@media (prefers-reduced-motion: reduce) {
+    button { transition: none; }
+}
+
+
+#flappyWin .birthdayPortraits { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+#flappyWin .birthdayPortraits img {
+    position: absolute; width: clamp(74px, 18vw, 135px);
+    height: clamp(74px, 18vw, 135px); object-fit: cover;
+    border-radius: 50%; border: 4px solid #fff;
+    box-shadow: 0 10px 35px rgba(177,92,130,.35);
+    animation: birthdayPhotoPop .8s cubic-bezier(.2,1.5,.4,1) both;
+}
+#flappyWin .birthdayPortraits img:nth-child(1) { top: 9%; left: 9%; animation-delay: .2s; }
+#flappyWin .birthdayPortraits img:nth-child(2) { top: 9%; right: 9%; animation-delay: .4s; }
+#flappyWin .birthdayPortraits img:nth-child(3) { bottom: 9%; left: 9%; animation-delay: .6s; }
+#flappyWin .birthdayPortraits img:nth-child(4) { bottom: 9%; right: 9%; animation-delay: .8s; }
+#flappyWin > strong, #flappyWin > h2, #flappyWin > p { position: relative; z-index: 3; }
+@keyframes birthdayPhotoPop { from { opacity: 0; transform: scale(.2) rotate(-18deg); }
+    to { opacity: 1; transform: scale(1) rotate(0); } }
+@media(max-width: 480px) {
+    #flappyWin .birthdayPortraits img:nth-child(1),
+    #flappyWin .birthdayPortraits img:nth-child(2) { top: 13%; }
+    #flappyWin .birthdayPortraits img:nth-child(3),
+    #flappyWin .birthdayPortraits img:nth-child(4) { bottom: 13%; }
+    #flappyWin .birthdayPortraits img:nth-child(1),
+    #flappyWin .birthdayPortraits img:nth-child(3) { left: 5%; }
+    #flappyWin .birthdayPortraits img:nth-child(2),
+    #flappyWin .birthdayPortraits img:nth-child(4) { right: 5%; }
+}
+
+
+/* Modern emoji finish: subtle depth and crisp rendering */
+.emoji-polished {
+    display: inline-block;
+    vertical-align: -0.08em;
+    line-height: 1;
+    filter: drop-shadow(0 2px 1px rgba(118, 73, 91, .18))
+            drop-shadow(0 4px 5px rgba(201, 126, 157, .12));
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+}
+button .emoji-polished, .emoji-polished.in-button {
+    filter: drop-shadow(0 2px 1px rgba(94, 48, 68, .2))
+            drop-shadow(0 3px 3px rgba(255,255,255,.35));
+}
+
 </style>
 </head>
 
@@ -2050,24 +1839,32 @@ video {
 
 
 <!-- =====================================================
-     SECRET BLACK INTRO
+     FLAPPY BIRTHDAY INTRO
 ===================================================== -->
-
 <div id="secretIntro">
-
-    <canvas id="crackCanvas"></canvas>
-
-    <div class="secret-circle-images">
-
-        <img src="photos/aastha_cutout.png" alt="">
-        <img src="photos/aastha_cutout2.png" alt="">
-        <img src="photos/aastha_cutout3.png" alt="">
-        <img src="photos/aastha_cutout4.png" alt="">
-
+    <canvas id="flappyCanvas"></canvas>
+    <div id="flappyHeader">
+        <h2>Aasthaaaaa!!! ✨💗</h2>
+        <p id="flappyScore" aria-hidden="true" style="display:none">0 / 19</p>
     </div>
-
-    <div id="whiteFlash"></div>
-
+    <div id="flappyOverlay">
+        <div id="flappyCard">
+            <h2>Aasthaaaaa!!! ✨💗</h2>
+            <p>Help this goofy potato reach your surprise! 💗<br>
+            Tap, click, or press Space to flap.</p>
+            <button id="flappyButton" type="button">LET'S ROLL! 🥔</button>
+        </div>
+    </div>
+    <div id="flappyWin">
+        <div class="birthdayPortraits">
+            <img src="photos/aastha_cutout.png" alt="Aastha photo 1">
+            <img src="photos/aastha_cutout2.png" alt="Aastha photo 2">
+            <img src="photos/aastha_cutout3.png" alt="Aastha photo 3">
+            <img src="photos/aastha_cutout4.png" alt="Aastha photo 4">
+        </div>
+        <strong>19</strong><h2>LEVEL 19 UNLOCKED! 🎀</h2>
+        <p>Happy Birthday Aasthaaa! 💗</p>
+    </div>
 </div>
 
 
@@ -2399,9 +2196,7 @@ Some people make ordinary moments special.
 <div
     class="scene"
     id="scene"
->
-
-<img
+><img
     class="cutout panda"
     src="photos/panda.png"
     alt="Panda"
@@ -2546,466 +2341,351 @@ AGAINNN? 🥹💗
 <script>
 
 /* =====================================================
-   SECRET CRACK INTRO
+   FLAPPY BIRTHDAY INTRO — 19 PIPES
 ===================================================== */
-
 const secretIntro = document.getElementById("secretIntro");
-const canvas = document.getElementById("crackCanvas");
-const ctx = canvas.getContext("2d");
-const whiteFlash = document.getElementById("whiteFlash");
-
-let crackClicks = 0;
-let cracks = [];
-let introFinished = false;
-
-/*
-   Randomly choose 4, 5 or 6 taps.
-*/
-let requiredClicks =
-    Math.floor(Math.random() * 3) + 4;
-
-
-/* =====================================================
-   CANVAS
-===================================================== */
-
-function resizeCanvas() {
-
-    const ratio = window.devicePixelRatio || 1;
-
-    canvas.width = window.innerWidth * ratio;
-    canvas.height = window.innerHeight * ratio;
-
-    canvas.style.width =
-        window.innerWidth + "px";
-
-    canvas.style.height =
-        window.innerHeight + "px";
-
-    ctx.setTransform(
-        ratio,
-        0,
-        0,
-        ratio,
-        0,
-        0
-    );
+const flappyCanvas = document.getElementById("flappyCanvas");
+const flappyCtx = flappyCanvas.getContext("2d");
+const flappyOverlay = document.getElementById("flappyOverlay");
+const flappyButton = document.getElementById("flappyButton");
+const flappyScore = document.getElementById("flappyScore");
+const flappyWin = document.getElementById("flappyWin");
+let fw = 0, fh = 0, frame = 0, score = 0, pipes = [], bird, playing = false;
+let lastTime = 0, pipeTimer = 0, animationId = 0;
+let flappyRevealTimer = null;
+const pipeGap = () => Math.max(175, Math.min(230, fh * .31));
+function resizeFlappy() {
+    fw = window.innerWidth; fh = window.innerHeight;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    flappyCanvas.width = Math.round(fw * dpr);
+    flappyCanvas.height = Math.round(fh * dpr);
+    flappyCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (bird) bird.x = Math.min(fw * .28, 135);
 }
+window.addEventListener("resize", resizeFlappy);
+function resetFlappy() {
+    cancelAnimationFrame(animationId);
+    resizeFlappy();
+    bird = {x: Math.min(fw * .28, 135), y: fh * .46, vy: 0, r: 15};
+    pipes = []; score = 0; frame = 0; pipeTimer = 0; lastTime = 0;
+    flappyScore.textContent = "";
+}
+function drawFlappy() {
+    const c = flappyCtx;
+    c.clearRect(0, 0, fw, fh);
+    // Dreamy birthday-sky background: warm sunset, glowing sun, hills and clouds.
+    const sky = c.createLinearGradient(0, 0, fw * .25, fh);
+    sky.addColorStop(0, "#d9d7ff");
+    sky.addColorStop(.42, "#ffd9c8");
+    sky.addColorStop(1, "#fff0c9");
+    c.fillStyle = sky; c.fillRect(0, 0, fw, fh);
 
-resizeCanvas();
+    // Soft sun glow in the upper-right corner.
+    const sunX = fw * .82, sunY = fh * .25;
+    const glow = c.createRadialGradient(sunX, sunY, 8, sunX, sunY, Math.min(fw, fh) * .27);
+    glow.addColorStop(0, "#fff0a6bb"); glow.addColorStop(1, "#fff0a600");
+    c.fillStyle = glow; c.fillRect(0, 0, fw, fh);
+    const sunR = Math.max(25, Math.min(43, fw * .075));
+    c.fillStyle = "#ffe58a";
+    c.beginPath(); c.arc(sunX, sunY, sunR, 0, Math.PI * 2); c.fill();
+    c.strokeStyle = "#fff1b988"; c.lineWidth = 3;
+    for (let a = 0; a < Math.PI * 2; a += Math.PI / 4) {
+        c.beginPath();
+        c.moveTo(sunX + Math.cos(a) * (sunR + 8), sunY + Math.sin(a) * (sunR + 8));
+        c.lineTo(sunX + Math.cos(a) * (sunR + 17), sunY + Math.sin(a) * (sunR + 17)); c.stroke();
+    }
 
-window.addEventListener(
-    "resize",
-    resizeCanvas
-);
+    // The sun gets silly oversized shades and a cheeky birthday grin.
+    c.save();
+    c.translate(sunX, sunY);
+    c.rotate(-0.08);
+    const lensY = -sunR * .12, lensW = sunR * .76, lensH = sunR * .43;
+    c.fillStyle = "#382b48";
+    c.strokeStyle = "#68465f";
+    c.lineWidth = Math.max(2, sunR * .075);
+    c.beginPath(); c.roundRect(-sunR * .82, lensY - lensH / 2, lensW, lensH, sunR * .14); c.fill(); c.stroke();
+    c.beginPath(); c.roundRect(sunR * .06, lensY - lensH / 2, lensW, lensH, sunR * .14); c.fill(); c.stroke();
+    c.beginPath(); c.moveTo(-sunR * .08, lensY); c.lineTo(sunR * .08, lensY); c.stroke();
+    c.strokeStyle = "#ffffff99"; c.lineWidth = Math.max(1.5, sunR * .055);
+    c.beginPath(); c.moveTo(-sunR * .68, lensY - lensH * .2); c.lineTo(-sunR * .48, lensY - lensH * .2); c.stroke();
+    c.beginPath(); c.moveTo(sunR * .2, lensY - lensH * .2); c.lineTo(sunR * .4, lensY - lensH * .2); c.stroke();
+    // Blushy cheeks
+    c.fillStyle = "#f3a18f99";
+    c.beginPath(); c.ellipse(-sunR * .58, sunR * .43, sunR * .17, sunR * .1, 0, 0, Math.PI * 2); c.fill();
+    c.beginPath(); c.ellipse(sunR * .58, sunR * .43, sunR * .17, sunR * .1, 0, 0, Math.PI * 2); c.fill();
+    // Big goofy grin
+    c.strokeStyle = "#89505a"; c.lineWidth = Math.max(2, sunR * .085); c.lineCap = "round";
+    c.beginPath(); c.arc(0, sunR * .24, sunR * .34, .18, Math.PI - .18); c.stroke();
+    c.fillStyle = "#fffaf0";
+    c.beginPath(); c.ellipse(0, sunR * .48, sunR * .2, sunR * .075, 0, 0, Math.PI * 2); c.fill();
+    // One silly buck tooth and a tiny tongue make the sun extra goofy.
+    c.fillStyle = "#fffdf5";
+    c.beginPath(); c.roundRect(-sunR * .07, sunR * .43, sunR * .16, sunR * .15, sunR * .035); c.fill();
+    c.fillStyle = "#f27b91";
+    c.beginPath(); c.ellipse(sunR * .13, sunR * .58, sunR * .13, sunR * .085, .35, 0, Math.PI * 2); c.fill();
+    // A cheeky, wonky eyebrow peeks above one lens.
+    c.strokeStyle = "#89505a"; c.lineWidth = Math.max(2, sunR * .07);
+    c.beginPath(); c.moveTo(sunR * .12, -sunR * .48); c.quadraticCurveTo(sunR * .42, -sunR * .66, sunR * .72, -sunR * .43); c.stroke();
+    c.restore();
 
+    // Distant rolling hills add depth without covering the play area.
+    c.fillStyle = "#b8dfd2";
+    c.beginPath(); c.moveTo(0, fh * .82);
+    c.quadraticCurveTo(fw * .22, fh * .69, fw * .47, fh * .83);
+    c.quadraticCurveTo(fw * .75, fh * .68, fw, fh * .81);
+    c.lineTo(fw, fh); c.lineTo(0, fh); c.fill();
+    c.fillStyle = "#8fc9bd";
+    c.beginPath(); c.moveTo(0, fh * .9);
+    c.quadraticCurveTo(fw * .28, fh * .78, fw * .55, fh * .91);
+    c.quadraticCurveTo(fw * .8, fh * .78, fw, fh * .89);
+    c.lineTo(fw, fh); c.lineTo(0, fh); c.fill();
 
-/* =====================================================
-   CREATE CRACK
-===================================================== */
+    // Puffy clouds with a gentle parallax drift.
+    const cloud = (x, y, scale, alpha) => {
+        c.save(); c.globalAlpha = alpha; c.fillStyle = "#fff9ff";
+        c.beginPath();
+        c.ellipse(x, y, 31 * scale, 12 * scale, 0, 0, Math.PI * 2);
+        c.ellipse(x - 17 * scale, y - 5 * scale, 17 * scale, 13 * scale, 0, 0, Math.PI * 2);
+        c.ellipse(x + 2 * scale, y - 12 * scale, 20 * scale, 18 * scale, 0, 0, Math.PI * 2);
+        c.ellipse(x + 20 * scale, y - 4 * scale, 17 * scale, 12 * scale, 0, 0, Math.PI * 2);
+        c.fill(); c.restore();
+    };
+    for (let i = 0; i < 6; i++) {
+        const x = ((i * 223 + 55 - frame * (.12 + (i % 2) * .07)) % (fw + 150) + fw + 150) % (fw + 150) - 65;
+        const y = fh * (.16 + (i % 3) * .13);
+        cloud(x, y, .75 + (i % 2) * .25, .68);
+    }
 
-function createCrack(x, y) {
+    // Tiny twinkles and floating pastel dots around the edges.
+    for (let i = 0; i < 24; i++) {
+        const x = (i * 83 + 29) % Math.max(fw, 1);
+        const y = (i * 137 + 53) % Math.max(Math.floor(fh * .76), 1);
+        const pulse = .45 + .35 * Math.sin(frame * .045 + i);
+        c.globalAlpha = pulse;
+        c.fillStyle = i % 3 === 0 ? "#fffdf5" : (i % 3 === 1 ? "#d8b5f2" : "#ffcf9f");
+        c.beginPath(); c.arc(x, y, i % 4 === 0 ? 2.5 : 1.5, 0, Math.PI * 2); c.fill();
+        if (i % 6 === 0) {
+            c.strokeStyle = "#fffdf5"; c.lineWidth = 1.5;
+            c.beginPath(); c.moveTo(x - 5, y); c.lineTo(x + 5, y);
+            c.moveTo(x, y - 5); c.lineTo(x, y + 5); c.stroke();
+        }
+    }
+    c.globalAlpha = 1;
+    for (const p of pipes) {
+        const gap = pipeGap(), bottom = p.top + gap;
+        c.fillStyle = "#48a85a";
+        c.fillRect(p.x, 0, p.w, p.top);
+        c.fillRect(p.x, bottom, p.w, fh - bottom);
+        c.fillStyle = "#267b3b";
+        c.fillRect(p.x - 5, p.top - 21, p.w + 10, 21);
+        c.fillRect(p.x - 5, bottom, p.w + 10, 21);
+        c.fillStyle = "#9be28d";
+        c.fillRect(p.x + 9, 0, 8, Math.max(0, p.top - 21));
+        c.fillRect(p.x + 9, bottom + 21, 8, fh - bottom);
+    }
+    // Goofy flying potato mascot: shiny potato skin, shades, blush and tiny legs.
+    c.save();
+    c.translate(bird.x, bird.y);
+    c.rotate(Math.max(-.48, Math.min(.85, bird.vy * .065)));
+    const legSwing = Math.sin(frame * .22) * 4;
 
-    const branchCount =
-        7 + Math.floor(Math.random() * 5);
+    // Little arms
+    c.strokeStyle = "#9b613c"; c.lineWidth = 4; c.lineCap = "round";
+    c.beginPath(); c.moveTo(-12, 5); c.lineTo(-22, 10 + legSwing * .35);
+    c.moveTo(12, 5); c.lineTo(22, 10 - legSwing * .35); c.stroke();
 
-    for (
-        let i = 0;
-        i < branchCount;
-        i++
-    ) {
+    // Tiny dancing legs
+    c.strokeStyle = "#805038"; c.lineWidth = 4;
+    c.beginPath(); c.moveTo(-7, 13); c.lineTo(-10, 21 + legSwing);
+    c.moveTo(7, 13); c.lineTo(10, 21 - legSwing); c.stroke();
+    c.fillStyle = "#d77d91";
+    c.beginPath(); c.ellipse(-13, 22 + legSwing, 6, 3.5, -.2, 0, Math.PI * 2);
+    c.ellipse(13, 22 - legSwing, 6, 3.5, .2, 0, Math.PI * 2); c.fill();
 
-        const angle =
-            (
-                Math.PI * 2 *
-                i /
-                branchCount
-            ) +
-            (
-                Math.random() * 0.45 -
-                0.225
-            );
+    // Soft cast shadow gives the mascot a lifted, toy-like 3D feel.
+    c.save();
+    c.shadowColor = "rgba(91, 48, 24, .38)";
+    c.shadowBlur = 12;
+    c.shadowOffsetX = 2;
+    c.shadowOffsetY = 7;
 
-        const length =
-            60 +
-            Math.random() * 100;
+    // Plump golden potato body with deep warm shading around the edges.
+    const potato = c.createRadialGradient(-8, -10, 2, 2, 3, 29);
+    potato.addColorStop(0, "#fff2c4");
+    potato.addColorStop(.22, "#f8d58b");
+    potato.addColorStop(.58, "#d99a50");
+    potato.addColorStop(.84, "#b8753e");
+    potato.addColorStop(1, "#784526");
+    c.fillStyle = potato;
+    c.beginPath();
+    c.moveTo(-20, -4);
+    c.bezierCurveTo(-22, -15, -9, -20, 2, -18);
+    c.bezierCurveTo(15, -18, 23, -9, 21, 3);
+    c.bezierCurveTo(20, 14, 10, 19, -3, 17);
+    c.bezierCurveTo(-15, 17, -23, 8, -20, -4);
+    c.closePath(); c.fill();
+    c.restore();
+    c.strokeStyle = "rgba(116, 66, 34, .72)"; c.lineWidth = 1.1; c.stroke();
 
-        const points = [
-            {
-                x: x,
-                y: y
-            }
-        ];
+    // Glossy studio-light reflections across the upper-left curve.
+    const shine = c.createRadialGradient(-11, -11, 1, -10, -10, 12);
+    shine.addColorStop(0, "rgba(255,255,235,.92)");
+    shine.addColorStop(.35, "rgba(255,245,205,.48)");
+    shine.addColorStop(1, "rgba(255,245,205,0)");
+    c.fillStyle = shine;
+    c.beginPath(); c.ellipse(-10, -10, 10, 6, -.55, 0, Math.PI * 2); c.fill();
+    c.fillStyle = "rgba(255,255,255,.48)";
+    c.beginPath(); c.ellipse(-14, -12, 3.2, 1.5, -.45, 0, Math.PI * 2); c.fill();
+    // Soft reflected light along the lower edge adds rounded volume.
+    c.strokeStyle = "rgba(255,211,137,.42)"; c.lineWidth = 2.2;
+    c.beginPath(); c.arc(0, 1, 15, .18, 1.9); c.stroke();
 
-        let currentX = x;
-        let currentY = y;
-
-        const segments =
-            3 + Math.floor(
-                Math.random() * 3
-            );
-
-        for (
-            let j = 0;
-            j < segments;
-            j++
-        ) {
-
-            const progress =
-                (j + 1) / segments;
-
-            currentX +=
-                Math.cos(angle) *
-                length *
-                progress *
-                0.4;
-
-            currentY +=
-                Math.sin(angle) *
-                length *
-                progress *
-                0.4;
-
-            points.push({
-                x: currentX,
-                y: currentY
+    // Tiny natural potato dimples and freckles.
+    [[-15,-2],[15,5],[-8,11],[10,-12],[-2,-15],[17,-4]].forEach(([x,y], i) => {
+        c.fillStyle = "rgba(103, 57, 30, .48)";
+        c.beginPath(); c.ellipse(x,y,1.15,1.65,.35,0,Math.PI*2); c.fill();
+        c.fillStyle = "rgba(255,224,164,.65)";
+        c.beginPath(); c.ellipse(x-.55,y-.65,.55,.7,.2,0,Math.PI*2); c.fill();
             });
+
+    // Cool oversized sunglasses
+    c.fillStyle = "#302b36";
+    c.beginPath(); c.roundRect(-15, -8, 13, 9, 4); c.roundRect(2, -8, 13, 9, 4); c.fill();
+    c.strokeStyle = "#302b36"; c.lineWidth = 2.5;
+    c.beginPath(); c.moveTo(-2,-4); c.lineTo(2,-4); c.moveTo(-15,-5); c.lineTo(-19,-7);
+    c.moveTo(15,-5); c.lineTo(19,-7); c.stroke();
+    c.fillStyle = "#ffffffaa";
+    c.fillRect(-12,-6,4,2); c.fillRect(5,-6,4,2);
+
+    // Smug little smile and rosy cheeks
+    c.strokeStyle = "#70432f"; c.lineWidth = 1.8;
+    c.beginPath(); c.arc(1, 5, 4, .15, Math.PI - .15); c.stroke();
+    c.fillStyle = "#e98b8b88";
+    c.beginPath(); c.ellipse(-15, 4, 3, 2, 0, 0, Math.PI*2);
+    c.ellipse(15, 4, 3, 2, 0, 0, Math.PI*2); c.fill();
+    c.restore();
+}
+function flap() {
+    if (playing) bird.vy = -5.4;
+}
+function loseFlappy() {
+    playing = false; cancelAnimationFrame(animationId);
+    flappyOverlay.style.display = "flex";
+    flappyOverlay.querySelector("h2").textContent = "POTATO DOWN! 😭";
+    flappyOverlay.querySelector("p").innerHTML =
+        "OOPSIE! The potato bonked into a pipe. 😭<br>Tap, click, or press Space to try again.";
+    flappyButton.textContent = "ONE MORE GO! 🥔";
+}
+function winFlappy() {
+    playing = false; cancelAnimationFrame(animationId);
+    flappyWin.style.display = "flex";
+    const symbols = ["💗", "🌷", "✨", "🎀", "💕"];
+    for (let i = 0; i < 65; i++) {
+        const el = document.createElement("span");
+        el.className = "flappyConfetti";
+        el.textContent = symbols[i % symbols.length];
+        el.style.left = Math.random() * 100 + "%";
+        el.style.fontSize = (14 + Math.random() * 20) + "px";
+        el.style.animationDelay = Math.random() * 1.1 + "s";
+        flappyWin.appendChild(el);
+    }
+    flappyRevealTimer = setTimeout(() => { secretIntro.classList.add("reveal"); startWebsite(); }, 4400);
+}
+function flappyLoop(timestamp) {
+    if (!playing) return;
+    const dt = Math.min((timestamp - (lastTime || timestamp)) / 16.667, 2);
+    lastTime = timestamp; frame += dt; pipeTimer += dt;
+    bird.vy += .29 * dt; bird.y += bird.vy * dt;
+    const speed = Math.max(1.9, Math.min(2.6, fw / 200));
+    const width = Math.max(58, Math.min(78, fw * .15));
+    if (pipeTimer >= 115 && score + pipes.length < 19) {
+        pipeTimer = 0;
+        const gap = pipeGap();
+        const minTop = Math.max(95, fh * .17);
+        const maxTop = Math.max(minTop + 1, fh - gap - Math.max(100, fh * .17));
+        pipes.push({x: fw + 20, w: width,
+            top: minTop + Math.random() * (maxTop - minTop), passed: false});
+    }
+    for (const p of pipes) {
+        p.x -= speed * dt;
+        if (!p.passed && p.x + p.w < bird.x - bird.r) {
+            p.passed = true; score++;
+            flappyScore.textContent = "";
+            if (score === 19) { drawFlappy(); winFlappy(); return; }
         }
-
-        cracks.push(points);
-    }
-
-    drawCracks();
-}
-
-
-/* =====================================================
-   DRAW CRACKS
-===================================================== */
-
-function drawCracks() {
-
-    ctx.clearRect(
-        0,
-        0,
-        window.innerWidth,
-        window.innerHeight
-    );
-
-    cracks.forEach(
-        points => {
-
-            ctx.beginPath();
-
-            ctx.moveTo(
-                points[0].x,
-                points[0].y
-            );
-
-            for (
-                let i = 1;
-                i < points.length;
-                i++
-            ) {
-
-                ctx.lineTo(
-                    points[i].x,
-                    points[i].y
-                );
-            }
-
-            /* Glow */
-
-            ctx.shadowBlur = 14;
-
-            ctx.shadowColor =
-                "rgba(255,170,220,0.9)";
-
-            ctx.strokeStyle =
-                "rgba(255,235,250,0.95)";
-
-            ctx.lineWidth = 2;
-
-            ctx.stroke();
-
-
-            /* Thin inner line */
-
-            ctx.shadowBlur = 0;
-
-            ctx.strokeStyle =
-                "rgba(255,255,255,0.8)";
-
-            ctx.lineWidth = 0.7;
-
-            ctx.stroke();
+        const overlap = bird.x + bird.r - 5 > p.x && bird.x - bird.r + 5 < p.x + p.w;
+        if (overlap && (bird.y - bird.r + 4 < p.top || bird.y + bird.r - 4 > p.top + pipeGap())) {
+            drawFlappy(); loseFlappy(); return;
         }
-    );
+    }
+    pipes = pipes.filter(p => p.x + p.w > -10);
+    if (bird.y - bird.r < 0 || bird.y + bird.r > fh) {
+        drawFlappy(); loseFlappy(); return;
+    }
+    drawFlappy();
+    animationId = requestAnimationFrame(flappyLoop);
 }
-
-
-/* =====================================================
-   MAGICAL PARTICLES
-===================================================== */
-
-function createParticles(
-    x,
-    y,
-    amount
-) {
-
-    const symbols = [
-        "✨",
-        "💗",
-        "🌷",
-        "💕",
-        "✦",
-        "🐼"
-    ];
-
-    for (
-        let i = 0;
-        i < amount;
-        i++
-    ) {
-
-        const particle =
-            document.createElement("div");
-
-        particle.className =
-            "secret-particle";
-
-        particle.textContent =
-            symbols[
-                Math.floor(
-                    Math.random() *
-                    symbols.length
-                )
-            ];
-
-        particle.style.left =
-            x + "px";
-
-        particle.style.top =
-            y + "px";
-
-        const moveX =
-            Math.random() * 240 - 120;
-
-        const moveY =
-            Math.random() * 240 - 120;
-
-        particle.style.setProperty(
-            "--move-x",
-            moveX + "px"
-        );
-
-        particle.style.setProperty(
-            "--move-y",
-            moveY + "px"
-        );
-
-        particle.style.fontSize =
-            (
-                14 +
-                Math.random() * 22
-            ) + "px";
-
-        document.body.appendChild(
-            particle
-        );
-
-        setTimeout(
-            () => {
-                particle.remove();
-            },
-            1300
-        );
-    }
+function startFlappy() {
+    resetFlappy(); flappyOverlay.style.display = "none";
+    playing = true; flap();
+    animationId = requestAnimationFrame(flappyLoop);
 }
+flappyButton.addEventListener("click", e => { e.stopPropagation(); startFlappy(); });
+secretIntro.addEventListener("pointerdown", e => {
+    if (e.target.closest("#flappyOverlay")) return;
+    e.preventDefault(); flap();
+});
+window.addEventListener("keydown", e => {
+    if (e.code !== "Space" || secretIntro.classList.contains("reveal")) return;
+    e.preventDefault();
+    if (playing && !e.repeat) flap();
+    else if (!playing && flappyWin.style.display !== "flex") startFlappy();
+});
 
+resetFlappy(); drawFlappy();
 
-/* =====================================================
-   FINAL EXPLOSION
-===================================================== */
-
-function finalExplosion() {
-
-    if (introFinished) {
-        return;
-    }
-
-    introFinished = true;
-
-    /* Show the 4 circular images */
-
-    secretIntro.classList.add(
-        "show-circle"
-    );
-
-
-    /* Final particles */
-
-    createParticles(
-        window.innerWidth / 2,
-        window.innerHeight / 2,
-        35
-    );
-
-
-    /* Huge final cracks */
-
-    for (
-        let i = 0;
-        i < 4;
-        i++
-    ) {
-
-        createCrack(
-            window.innerWidth / 2,
-            window.innerHeight / 2
-        );
-    }
-
-
-    /* White flash */
-
-    setTimeout(
-        () => {
-
-            whiteFlash.classList.add(
-                "active"
-            );
-
-        },
-        250
-    );
-
-
-    /* Reveal website */
-
-    setTimeout(
-        () => {
-
-            secretIntro.classList.add(
-                "reveal"
-            );
-
-            startWebsite();
-
-        },
-        1200
-    );
-}
-
-
-/* =====================================================
-   SECRET TAP
-===================================================== */
-
-function secretTap(event) {
-
-    if (introFinished) {
-        return;
-    }
-
-
-    crackClicks++;
-
-
-    /* Get tap position */
-
-    let x;
-    let y;
-
-
-    if (
-        event.touches &&
-        event.touches.length
-    ) {
-
-        x =
-            event.touches[0].clientX;
-
-        y =
-            event.touches[0].clientY;
-
-    } else {
-
-        x =
-            event.clientX;
-
-        y =
-            event.clientY;
-    }
-
-
-    /* Crack */
-
-    createCrack(
-        x,
-        y
-    );
-
-
-    /* Particles */
-
-    createParticles(
-        x,
-        y,
-        5 + crackClicks * 2
-    );
-
-
-    /* Small screen flash */
-
-    secretIntro.animate(
-        [
-            {
-                filter:
-                    "brightness(1)"
-            },
-
-            {
-                filter:
-                    "brightness(1.8)"
-            },
-
-            {
-                filter:
-                    "brightness(1)"
-            }
-        ],
-        {
-            duration: 250
+/* Add gentle depth to emoji characters across existing and dynamically updated text. */
+(function polishPageEmojis() {
+    const emojiPattern = /\p{Extended_Pictographic}(?:\uFE0F|\uFE0E)?(?:\u200D\p{Extended_Pictographic}(?:\uFE0F|\uFE0E)?)*/gu;
+    function wrapTextNode(node) {
+        if (!node || !node.parentNode) return;
+        const parent = node.parentElement;
+        if (parent && (parent.closest(".emoji-polished") ||
+            /^(SCRIPT|STYLE|TEXTAREA|INPUT|CANVAS)$/i.test(parent.tagName))) return;
+        const value = node.nodeValue;
+        if (!value || !emojiPattern.test(value)) { emojiPattern.lastIndex = 0; return; }
+        emojiPattern.lastIndex = 0;
+        const fragment = document.createDocumentFragment();
+        let last = 0, match;
+        while ((match = emojiPattern.exec(value)) !== null) {
+            if (match.index > last) fragment.appendChild(document.createTextNode(value.slice(last, match.index)));
+            const span = document.createElement("span");
+            span.className = "emoji-polished";
+            span.textContent = match[0];
+            fragment.appendChild(span);
+            last = match.index + match[0].length;
         }
-    );
-
-
-    /* Final tap */
-
-    if (
-        crackClicks >= requiredClicks
-    ) {
-
-        secretIntro.removeEventListener(
-            "click",
-            secretTap
-        );
-
-        finalExplosion();
+        if (last < value.length) fragment.appendChild(document.createTextNode(value.slice(last)));
+        if (last > 0) node.parentNode.replaceChild(fragment, node);
+        emojiPattern.lastIndex = 0;
     }
-}
+    function scan(root) {
+        if (!root) return;
+        if (root.nodeType === Node.TEXT_NODE) { wrapTextNode(root); return; }
+        if (root.nodeType !== Node.ELEMENT_NODE || /^(SCRIPT|STYLE|TEXTAREA|INPUT|CANVAS)$/i.test(root.tagName)) return;
+        if (root.closest && root.closest(".emoji-polished")) return;
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+        const nodes = [];
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+        nodes.forEach(wrapTextNode);
+    }
+    scan(document.body);
+    const observer = new MutationObserver(records => {
+        records.forEach(record => record.addedNodes.forEach(scan));
+    });
+    observer.observe(document.body, {childList: true, subtree: true});
+})();
 
-
-/* =====================================================
-   SECRET INTRO EVENT
-===================================================== */
-
-secretIntro.addEventListener(
-    "click",
-    secretTap
-);
 
 
 /* =====================================================
@@ -3259,8 +2939,6 @@ function noButton() {
 
 function restartExperience() {
 
-
-
     /* Stop video */
 
     const video =
@@ -3343,8 +3021,10 @@ function restartExperience() {
     /* Reset intro classes */
 
     intro.classList.remove(
-        "reveal",
-        "show-circle"
+    "show-circle",
+    "reveal",
+    "crack-shatter"
+
     );
 
 
@@ -3452,11 +3132,39 @@ function restartExperience() {
                     "";
 
             }
+
+
         );
 }
 
 function restartExperience() {
-    window.location.reload();
+    // Restart directly at the game without reloading the page.
+    clearTimeout(flappyRevealTimer);
+    playing = false;
+    cancelAnimationFrame(animationId);
+    document.querySelectorAll(".slide").forEach(slide => {
+        slide.classList.remove("active", "old");
+    });
+    document.getElementById("slide1").classList.add("active");
+    currentSlide = 1;
+    yesAttempts = 0;
+    const yesButton = document.getElementById("yesButton");
+    yesButton.style.transform = "";
+    document.getElementById("noMessage").textContent = "";
+    document.getElementById("birthdayVideo").pause();
+    flappyWin.style.display = "none";
+    flappyWin.querySelectorAll(".flappyConfetti").forEach(el => el.remove());
+    secretIntro.classList.remove("reveal");
+    secretIntro.style.opacity = "1";
+    secretIntro.style.visibility = "visible";
+    secretIntro.style.pointerEvents = "auto";
+    flappyOverlay.style.display = "flex";
+    flappyOverlay.querySelector("h2").textContent = "Aasthaaaaa 👀💗";
+    flappyOverlay.querySelector("p").innerHTML =
+        "Help this goofy potato reach your surprise! 💗<br>Tap, click, or press Space to flap.";
+    flappyButton.textContent = "LET'S ROLL! 🥔";
+    resetFlappy();
+    drawFlappy();
 }
 
 
